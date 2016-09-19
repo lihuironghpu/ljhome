@@ -182,6 +182,18 @@
             <a class="edit_pwd" href="">密码修改</a><a href="" class="down_work">下载任务</a>
         </footer>
     </div>
+    <div class="dialog" id="mesDialog" style="display: none">
+        <article class="container">
+            <header>
+                <h4 id="diaTitle">消息提醒01</h4>
+                <a href="javascript:void(0)" onclick="toggleDialog(false)"></a>
+            </header>
+            <section class="content">
+                <!-- 此处可嵌入iframe-->
+                <iframe id="mesIframe" src="bg.jpg" width="460" height="280" frameborder="0" style="overflow: hidden;"></iframe>
+            </section>
+        </article>
+    </div>
     <script src="ljindex.js"></script>
 </body>
 </html>

@@ -20,6 +20,7 @@ body{
     background-size: cover;
 }
 #home_container{
+    font-size: 14px;
     position: absolute;
     top: 30px;
     right: 0;
@@ -27,7 +28,7 @@ body{
     left: 0;
     margin: auto;
     width: 1120px;
-    height: 580px;
+    height: 570px;
 }
 #home_container .content{
     overflow: hidden;
@@ -171,13 +172,21 @@ body{
     position: absolute;
     top: 10px;
 }
+/*0919 edit by lhr*/
+#home_container .countlist li[class]{
+    cursor: pointer;
+}
+#home_container .countlist li[class]:hover{
+    background: #f1f1f1;
+}
+/*0919 edit by lhr*/
 #home_container .countlist li a{
     display: block;
     color: #666;
     margin-top: 55px;
     cursor: pointer;
 }
-#home_container .countlist li a:hover{
+#home_container .countlist li:hover a{
     text-decoration: underline;
 }
 #home_container .countlist li.work_shz:before{
@@ -274,7 +283,9 @@ body{
     top: 65px;
 }
 #home_container .main_menu>a:hover{
-     text-decoration: underline;
+    text-decoration: underline;
+    opacity: .85;
+    filter: Alpha(opacity=85);
 }
 #home_container .main_menu p{
     padding: 180px 0 20px 0;
@@ -316,6 +327,8 @@ body{
 }
 #home_container .other_menu>a:hover{
     text-decoration: underline;
+    opacity: .85;
+    filter: Alpha(opacity=85);
 }
 #home_container .other_menu>a:before{
     content: "";
@@ -325,6 +338,17 @@ body{
     background: url("othermenus.png") no-repeat center 0;
     position: absolute;
     top: 40px;
+}
+#home_container .main_menu>a:hover:before,
+#home_container .other_menu>a:hover:before{
+    /*-ms-transform: scale(1.1); 	/!* IE 9+ *!/*/
+    /*-moz-transform: scale(1.1); 	/!* Firefox *!/*/
+    /*-webkit-transform: scale(1.1); /!* Safari 和 Chrome *!/*/
+    /*-o-transform: scale(1.1);*/
+    /*zoom: 1.1\9;*/
+    /*opacity: .7;*/
+    /*transform: translateX(-10px);*/
+    /*transform: rotateZ(45deg);*/
 }
 #home_container .other_menu .menu_cancel{
     background: #e9a4cd;
@@ -352,14 +376,15 @@ body{
 }
 #home_container footer a{
     display: inline-block;
-    height: 40px;
-    width: 150px;
+    height: 36px;
+    width: 130px;
     margin: 0 10px;
-    line-height: 40px;
-    text-indent: 10px;
+    line-height: 36px;
+    text-indent: 20px;
     border-radius: 20px;
     background: #999;
     position: relative;
+    cursor: pointer;
 }
 #home_container footer a:hover{
     background: #f06c7f;
@@ -371,9 +396,69 @@ body{
     height: 30px;
     background: url("setting.png") no-repeat center 0;
     position: absolute;
-    top: 5px;
-    left: 20px;
+    top: 3px;
+    left: 18px;
 }
 #home_container footer .down_work:before{
     background-position: center -30px;
+}
+
+/*大屏幕样式*/
+#home_container.container_big{
+    -ms-transform: scale(1.2); 	/* IE 9+ */
+    -moz-transform: scale(1.2); 	/* Firefox */
+    -webkit-transform: scale(1.2); /* Safari 和 Chrome */
+    -o-transform: scale(1.2);
+    zoom: 1.2\9;
+}
+#home_container.container_small{
+    -ms-transform: scale(0.8); 	/* IE 9+ */
+    -moz-transform: scale(0.8); 	/* Firefox */
+    -webkit-transform: scale(0.8); /* Safari 和 Chrome */
+    -o-transform: scale(0.8);
+    zoom: 0.8\9;
+}
+
+/*弹窗样式*/
+.dialog {
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,.3);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.dialog .container {
+    width: 460px;
+    height: 320px;
+    background: #fff;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+.dialog header {
+    line-height: 40px;
+    background: #e83a51;
+    border-radius: 5px 5px 0 0;
+    color: #fff;
+    position: relative;
+}
+.dialog h4 {
+    margin: 0;
+    text-indent: 10px;
+}
+.dialog header a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url("closebtn.png") no-repeat center center;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
