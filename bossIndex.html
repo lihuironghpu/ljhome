@@ -218,6 +218,7 @@
                                 <li style="width: 60px;"></li>
                                 <li style="width: 50px;"></li>
                             </ul>
+                            <span class="hover_text"></span>
                         </div>
 
                     </div>
@@ -266,6 +267,8 @@
                                 <li style="width: 160px;"></li>
                                 <li style="width: 150px"></li>
                             </ul>
+
+                            <span class="hover_text"></span>
                         </div>
 
                     </div>
@@ -695,12 +698,6 @@
                 newPath.setAttribute("data-precent",curPath.percent*100+'%');
                 circlePicEle.insertBefore(newPath,coverCircleEle);
             }else{
-                /*
-                 var polyLineVml = document.createElement("v:polyline");
-                 polyLineVml.strokeweight = "2px";
-                 polyLineVml.strokecolor = "#fd7676";
-                 polyLineVml.points = points;
-                 */
 //                不支持SVG，使用VML
                 //<v:arc filled=false style="position:relative;width:100;height:100" StartAngle="0" EndAngle="270" />
                 var circlePicVmlEle = document.getElementById(circlePicId+"Vml");
@@ -713,20 +710,9 @@
                 newPathVml.strokecolor = pathColor;
                 newPathVml.strokeweight = "14pt";
                 newPathVml.setAttribute("style","position:absolute; top:8px;left:8px;");
-
-
-                /*
-                 var newPolyLineVml = document.createElement("v:PolyLine");
-
-                 newPolyLineVml.setAttribute("FillColor",pathColor);
-                 newPolyLineVml.points = curPath.mx+","+curPath.my+" "+curPath.pathx+","+curPath.pathy+" 50,50";
-                 */
-
                 newPathVml.style.width = "108";
                 newPathVml.style.height = "108";
                 circlePicVmlEle.appendChild(newPathVml);
-                //circlePicVmlEle.appendChild(newPolyLineVml);
-
             }
 //            右侧列表
             (function(){
@@ -799,18 +785,34 @@
         var minNum = objchild["num"+topNum].num;
         var bottomUnit = (maxNum-minNum)/4;
         var unitPoint = 50/bottomUnit;
-//            设置底部刻度
+
+        //    设置底部刻度
         for(var i = 0 ;i < 5 ; i ++ ){
             numberScaleList[i].innerHTML = minNum + bottomUnit*i;
         }
-//            设置右侧刻度
+        //    设置右侧刻度
         for(var j = 0 ;j < topNum ; j ++ ){
             numberRankList[j].innerHTML = objchild["num"+(j+1)].num;
-            liList[j].setAttribute("title",objchild["num"+(j+1)].names);
             liList[j].setAttribute("data-text",objchild["num"+(j+1)].names);
-
-
             liList[j].style.width = (parseInt((objchild["num"+(j+1)].num-minNum)*unitPoint) + 50) +'px';
+            liList[j].className = "";
+            (function(){
+               var curnum =  j;
+                liList[j].onmouseover = function(){
+                    console.log(objchild["num"+(curnum+1)].names+" ");
+                    var textEle = document.getElementById(companyEleId).parentNode.getElementsByTagName("span")[0];
+                    textEle.innerHTML = objchild["num"+(curnum+1)].names;
+                    if(topNum == 10){
+                        textEle.style.top = ((curnum+1)*20-10) +"px";
+
+                    }else{
+                        textEle.style.top = ((curnum+1)*40-20) +"px";
+
+                    }
+//                    liList[curnum].className = "active";
+                }
+
+            })()
         }
 
 

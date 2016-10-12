@@ -648,7 +648,7 @@ body{
 .chart ul li.max{
     background: #9bdcfb;
 }
-.chart ul li:hover{
+.chart ul li:hover,.chart ul li.active{
     background: #9bdcfb;
 }
 .chart .top_scale{
@@ -812,6 +812,16 @@ body{
 }
 .rank_panel .tabpanel+.tabpanel .chart ul li{
     margin: 0 0 32px 0;
+}
+.rank_panel .hover_text{
+    position: absolute;
+    top: 0;
+    left: 60px;
+    display: inline-block;
+    line-height: 20px;
+    background: #fff;
+    color: #333;
+    padding: 0 5px;
 }
 /* 按照渠道、车型统计*/
 .car_count .center_count{
