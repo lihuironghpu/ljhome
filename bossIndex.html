@@ -12,9 +12,6 @@
                 document.createElement(newTags[i]);
             }
         </script>
-        <STYLE>
-            v\:* { Behavior: url(#default#VML) }
-        </STYLE>
     <![endif]-->
 
 </head>
@@ -109,11 +106,6 @@
                     </div>
                     <ul class="count_list" id="countList">
                         <!-- 右侧列表-->
-                        <!--<li>-->
-                        <!--<span class="count_precent">45%</span>-->
-                        <!--<span class="count_names">经销商 </span>-->
-                        <!--<span class="count_num">1800</span>-->
-                        <!--</li>-->
                     </ul>
                 </div>
                 <div class="tabpanel" style="height:154px;">
@@ -134,11 +126,6 @@
                     </div>
                     <ul class="count_list" id="countList2">
                         <!-- 右侧列表-->
-                        <!--<li>-->
-                        <!--<span class="count_precent">45%</span>-->
-                        <!--<span class="count_names">经销商 </span>-->
-                        <!--<span class="count_num">1800</span>-->
-                        <!--</li>-->
                     </ul>
                 </div>
             </div>
@@ -303,9 +290,6 @@
                 <div id="polylineVmlDoc" style="margin-top: 10px;">
 
                 </div>
-                <!--<v:PolyLine filled="false" Points="0,0 0,100 20,150 200,100" style="position:relative"/>-->
-                <!--<iframe id="polylineFrame" src="img/polyline.svg" width="358" height="200" frameborder="0" style="margin-top: 10px;position: absolute;"></iframe>-->
-
                 <div class="chart">
                     <ul id="applyNums">
                         <li style="height: 80px;" data_apply="100" data_month="1"></li>
@@ -427,7 +411,7 @@
         var applyLineBottom = document.getElementById("applyLineBottom");
         var applyCurrentNumEle = document.getElementById("applyCurrentNum");
 
-//        初始化月数据对象的申请次数
+        //初始化月数据对象的申请次数
         for(var i=0 ; i<numArr.length ;i++){
             var num = numArr[i];
             monthObj[i+1] = {
@@ -435,23 +419,23 @@
             };
         }
 
-//        排序获得最大最小的申请次数
+        //排序获得最大最小的申请次数
         var sortNumArr =  numArr.sort(function(a,b) {return b-a});
         var unitPoint = 40;//一个格子的高度对应的像素数
         maxMonthObj.num = sortNumArr[0];
         minMonthObj.num = sortNumArr[sortNumArr.length-1];
-//       一个格子的高度对应的申请书
+        //一个格子的高度对应的申请书
         var unitNum = (maxMonthObj.num - minMonthObj.num) /4;
         var proportion = (200 - unitPoint)/(maxMonthObj.num - minMonthObj.num);
 
-//        左侧刻度
+        //左侧刻度
         leftScaleArr[0].innerHTML = maxMonthObj.num;
         leftScaleArr[1].innerHTML = maxMonthObj.num - unitNum;
         leftScaleArr[2].innerHTML = maxMonthObj.num - unitNum*2;
         leftScaleArr[3].innerHTML = maxMonthObj.num - unitNum*3;
         leftScaleArr[4].innerHTML = minMonthObj.num;
 
-//        竖直线的高度
+        //竖直线的高度
         for(onemon in monthObj){
             var monHeight = parseInt((proportion*(monthObj[onemon].applyNum - minMonthObj.num)) + 40); //竖线高度
             applyEleArr[onemon-1].style.height = monHeight + 'px';
@@ -466,14 +450,13 @@
             if(monthObj[onemon].applyNum == minMonthObj.num){
                 minMonthObj.monthNum.push(onemon);
             }
-//            鼠标移动上去显示月份
+            //鼠标移动上去显示月份
             (function(){
                 var num = onemon - 1 ;
                 applyEleArr[num].onmouseover = function() {
-                    console.log(monthObj[num+1].applyNum);
                     applyCurrentNumEle.innerHTML = monthObj[num+1].applyNum;
                     applyCurrentNumEle.style.top = monthObj[num+1].pointY + 'px';
-//                    判断是不是最后两个月，设置数据显示在原点前面
+                    //判断是不是最后两个月，设置数据显示在原点前面
                     if(num>9){
                         applyCurrentNumEle.style.left = (30*num-applyCurrentNumEle.clientWidth-6) + 'px';
                     }else{
@@ -495,9 +478,9 @@
                 " 270," + monthObj[10].pointY +
                 " 300," + monthObj[11].pointY +
                 " 330," + monthObj[12].pointY;
-//            设置折线坐标
+        //设置折线坐标
         if(document.createElementNS){
-//            支持SVG
+            //支持SVG
             polylineDoc.setAttribute("points",points);
 
         }else{
@@ -508,11 +491,11 @@
             document.getElementById("polylineVmlDoc").appendChild(polyLineVml);
         }
 
-//        设置最低最高横线
+        //设置最低最高横线
         applyLineTop.style.width = (maxMonthObj.monthNum[maxMonthObj.monthNum.length - 1] - 1) * 30 + 'px';
         applyLineBottom.style.width = (minMonthObj.monthNum[minMonthObj.monthNum.length - 1] - 1) * 30 + 'px';
 
-//        设置最多次月份颜色
+        //设置最多次月份颜色
         for(var k = 0 ;k < maxMonthObj.monthNum.length ; k ++ ){
             applyEleArr[maxMonthObj.monthNum[k] - 1 ].className = "max";
         }
@@ -536,7 +519,7 @@
         var countLineBottom = document.getElementById("countLineBottom");
         var CurrentNumEle = document.getElementById("countCurrentNum");
 
-//        初始化月数据对象的申请次数
+        //初始化月数据对象的申请次数
         for(var i=0 ; i<numArr.length ;i++){
             var num = numArr[i];
             monthObj[i+1] = {
@@ -544,23 +527,23 @@
             };
         }
 
-//        排序获得最大最小的申请次数
+        //排序获得最大最小的申请次数
         var sortNumArr =  numArr.sort(function(a,b) {return b-a});
         var unitPoint = 40;//一个格子的高度对应的像素数
         maxMonthObj.num = sortNumArr[0];
         minMonthObj.num = sortNumArr[sortNumArr.length-1];
-//       一个格子的高度对应的申请书
+        //一个格子的高度对应的申请书
         var unitNum = (maxMonthObj.num - minMonthObj.num) /4;
         var proportion = (200 - unitPoint)/(maxMonthObj.num - minMonthObj.num);
 
-//        左侧刻度
+        //左侧刻度
         leftScaleArr[0].innerHTML = parseInt(maxMonthObj.num/1000)+'万';
         leftScaleArr[1].innerHTML = parseInt((maxMonthObj.num - unitNum)/1000) + '万';
         leftScaleArr[2].innerHTML = parseInt((maxMonthObj.num - unitNum*2)/1000)+ '万';
         leftScaleArr[3].innerHTML = parseInt((maxMonthObj.num - unitNum*3)/1000) + '万';
         leftScaleArr[4].innerHTML = parseInt(minMonthObj.num/1000)+'万';
 
-//        竖直线的高度
+        //竖直线的高度
         for(onemon in monthObj){
             var monHeight = parseInt((proportion*(monthObj[onemon].applyNum - minMonthObj.num)) + 40); //竖线高度
             applyEleArr[onemon-1].style.height = monHeight + 'px';
@@ -575,14 +558,13 @@
             if(monthObj[onemon].applyNum == minMonthObj.num){
                 minMonthObj.monthNum.push(onemon);
             }
-//            鼠标移动上去显示月份
+            //鼠标移动上去显示月份
             (function(){
                 var num = onemon - 1 ;
                 applyEleArr[num].onmouseover = function() {
-                    console.log(monthObj[num+1].applyNum);
                     CurrentNumEle.innerHTML = monthObj[num+1].applyNum;
                     CurrentNumEle.style.top = monthObj[num+1].pointY-4 + 'px';
-//                    判断是不是最后两个月，设置数据显示在原点前面
+                    //判断是不是最后两个月，设置数据显示在原点前面
                     if(num>9){
                         CurrentNumEle.style.left = (26*(num+1)-CurrentNumEle.clientWidth) + 'px';
                     }else{
@@ -593,11 +575,11 @@
             })();
         }
 
-//        设置最低最高横线
+        //设置最低最高横线
         countLineTop.style.width = (maxMonthObj.monthNum[maxMonthObj.monthNum.length - 1]) * 26 + 'px';
         countLineBottom.style.width = (minMonthObj.monthNum[minMonthObj.monthNum.length - 1]) * 26 + 'px';
 
-//        设置最多次月份颜色
+        //设置最多次月份颜色
         for(var k = 0 ;k < maxMonthObj.monthNum.length ; k ++ ){
             applyEleArr[maxMonthObj.monthNum[k] - 1 ].className = "max";
         }
@@ -687,7 +669,7 @@
 
             }
             if(document.createElementNS){
-//                支持SVG的
+                //支持SVG的
                 var newPath = document.createElementNS('http://www.w3.org/2000/svg',"path");
 
                 newPath.setAttribute("d","M " + curPath.mx + " " + curPath.my +" A 60 60 "+ 0  +" "+ curPath.isBigArc +" 1 "+curPath.pathx+" "+curPath.pathy+" L 60 60 Z");
@@ -698,8 +680,7 @@
                 newPath.setAttribute("data-precent",curPath.percent*100+'%');
                 circlePicEle.insertBefore(newPath,coverCircleEle);
             }else{
-//                不支持SVG，使用VML
-                //<v:arc filled=false style="position:relative;width:100;height:100" StartAngle="0" EndAngle="270" />
+                //不支持SVG，使用VML
                 var circlePicVmlEle = document.getElementById(circlePicId+"Vml");
                 var newPathVml = document.createElement("v:Arc");
 
@@ -714,7 +695,7 @@
                 newPathVml.style.height = "108";
                 circlePicVmlEle.appendChild(newPathVml);
             }
-//            右侧列表
+            //右侧列表
             (function(){
                 var newLiEle = document.createElement("li");
                 var spanPrecentEle = document.createElement("span");
@@ -799,27 +780,18 @@
             (function(){
                var curnum =  j;
                 liList[j].onmouseover = function(){
-                    console.log(objchild["num"+(curnum+1)].names+" ");
                     var textEle = document.getElementById(companyEleId).parentNode.getElementsByTagName("span")[0];
                     textEle.innerHTML = objchild["num"+(curnum+1)].names;
                     if(topNum == 10){
                         textEle.style.top = ((curnum+1)*20-10) +"px";
-
                     }else{
                         textEle.style.top = ((curnum+1)*40-20) +"px";
-
                     }
-//                    liList[curnum].className = "active";
                 }
 
             })()
         }
-
-
     }
-
-
-
 </script>
 </body>
 </html>
