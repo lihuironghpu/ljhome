@@ -16,7 +16,7 @@ html,body{
 body{
     font-family: sans-serif;
     font-size: 14px;
-    background: url("bg.jpg") no-repeat center center;
+    background: url("../img/bg.jpg") no-repeat center center;
     background-size: cover;
 }
 #home_container{
@@ -33,7 +33,7 @@ body{
 #home_container .content{
     overflow: hidden;
 }
-#home_container section{
+#home_container .section{
     float: left;
     margin-right: 10px;
 }
@@ -44,7 +44,7 @@ body{
     width: 310px;
 }
 
-#home_container article header{
+#home_container .article .header{
     line-height: 40px;
     text-indent: 20px;
     font-size: 16px;
@@ -67,7 +67,7 @@ body{
     text-decoration: underline;
 }
 /*待办任务*/
-#home_container .wait_work header{
+#home_container .wait_work .header{
     background: rgb(241, 130, 119);
     background: rgba(241, 110, 101, .8);
 }
@@ -100,10 +100,10 @@ body{
     height: 230px;
     overflow: hidden;
 }
-#home_container .mes_notice header{
+#home_container .mes_notice .header{
     text-indent: 0;
 }
-#home_container .mes_notice header a{
+#home_container .mes_notice .header a{
     float: left;
     width: 50%;
     border-bottom: 2px solid #ddd;
@@ -113,8 +113,8 @@ body{
     background: rgba(255, 255, 255, .8);
     cursor: pointer;
 }
-#home_container .mes_notice header a:active,
-#home_container .mes_notice header a.active{
+#home_container .mes_notice .header a:active,
+#home_container .mes_notice .header a.active{
     border-bottom: 2px solid #5bc6ec;
     color: #5bc6ec;
 }
@@ -128,12 +128,12 @@ body{
     overflow: auto;
 }
 /*工作台*/
-#home_container .work_center header{
+#home_container .work_center .header{
     background: rgb(244, 173, 136);
     background: rgba(244, 159, 115, .8);
 }
 #home_container .work_center{
-    background-image: url("mycenterbg.png");
+    background-image: url("../img/mycenterbg.png");
     background-image: linear-gradient(0deg,rgba(232,58,81, .8),rgba(255,153,98, .8));
     height: 260px;
 }
@@ -168,7 +168,7 @@ body{
     display: block;
     width: 100%;
     height: 40px;
-    background: url("worklist.png") no-repeat center 0;
+    background: url("../img/worklist.png") no-repeat center 0;
     position: absolute;
     top: 10px;
 }
@@ -278,7 +278,7 @@ body{
     display: block;
     width: 100%;
     height: 100px;
-    background: url("mainmenus.png") center 0 no-repeat;
+    background: url("../img/mainmenus.png") center 0 no-repeat;
     position: absolute;
     top: 65px;
 }
@@ -335,7 +335,7 @@ body{
     display: block;
     width: 100%;
     height: 50px;
-    background: url("othermenus.png") no-repeat center 0;
+    background: url("../img/othermenus.png") no-repeat center 0;
     position: absolute;
     top: 40px;
 }
@@ -370,11 +370,11 @@ body{
     background-position: center -100px;
 }
 /* 底部样式 */
-#home_container footer{
+#home_container .footer{
     text-align: center;
     margin-top: 40px;
 }
-#home_container footer a{
+#home_container .footer a{
     display: inline-block;
     height: 36px;
     width: 130px;
@@ -386,20 +386,20 @@ body{
     position: relative;
     cursor: pointer;
 }
-#home_container footer a:hover{
+#home_container .footer a:hover{
     background: #f06c7f;
 }
-#home_container footer a:before{
+#home_container .footer a:before{
     content: '';
     display: block;
     width: 30px;
     height: 30px;
-    background: url("setting.png") no-repeat center 0;
+    background: url("../img/setting.png") no-repeat center 0;
     position: absolute;
     top: 3px;
     left: 18px;
 }
-#home_container footer .down_work:before{
+#home_container .footer .down_work:before{
     background-position: center -30px;
 }
 
@@ -412,11 +412,11 @@ body{
     zoom: 1.2\9;
 }
 #home_container.container_small{
-    -ms-transform: scale(0.8); 	/* IE 9+ */
-    -moz-transform: scale(0.8); 	/* Firefox */
-    -webkit-transform: scale(0.8); /* Safari 和 Chrome */
-    -o-transform: scale(0.8);
-    zoom: 0.8\9;
+    -ms-transform: scale(0.9); 	/* IE 9+ */
+    -moz-transform: scale(0.9); 	/* Firefox */
+    -webkit-transform: scale(0.9); /* Safari 和 Chrome */
+    -o-transform: scale(0.9);
+    zoom: 0.9\9;
 }
 
 /*弹窗样式*/
@@ -442,7 +442,7 @@ body{
     left: 0;
     margin: auto;
 }
-.dialog header {
+.dialog .header {
     line-height: 40px;
     background: #e83a51;
     border-radius: 5px 5px 0 0;
@@ -453,12 +453,402 @@ body{
     margin: 0;
     text-indent: 10px;
 }
-.dialog header a {
+.dialog .header a {
     display: block;
     width: 40px;
     height: 40px;
-    background: url("closebtn.png") no-repeat center center;
+    background: url("../img/closebtn.png") no-repeat center center;
     position: absolute;
     top: 0;
     right: 0;
+}
+
+/*老板首页界面*/
+#home_container.boss_container{
+    width: 1160px;
+    height: 486px;
+    top: 0;
+}
+#home_container.boss_container .content+.content{
+    margin-top: 10px;
+}
+#home_container.boss_container .content .section{
+    background: #fff;
+    height: 190px;
+    overflow: hidden;
+}
+#home_container.boss_container .content+.content .section{
+    height: 286px;
+}
+#home_container.boss_container .left_section{
+    width: 340px;
+}
+#home_container.boss_container .center_section{
+    width: 410px;
+}
+#home_container.boss_container .right_section{
+    width: 390px;
+    margin-right: 0;
+}
+#home_container.boss_container .header{
+    line-height: 36px;
+    color: #fff;
+    background: #66ccfb;
+    text-indent: 20px;
+}
+#home_container.boss_container .tabheader{
+    text-indent: 0;
+    background: transparent;
+}
+#home_container.boss_container .tabheader a{
+    display: inline-block;
+    width: 50%;
+    height: 36px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #ddd;
+    text-align: center;
+    color: #666;
+    cursor: pointer;
+}
+#home_container.boss_container .tabheader a:hover,
+#home_container.boss_container .tabheader a.active{
+    color: #66ccfb;
+    border-bottom: 2px solid #66ccfb;
+}
+#home_container.boss_container .tabbody{
+    overflow: hidden;
+    width: 200%;
+}
+#home_container.boss_container .tabpanel{
+    float: left;
+    width: 50%;
+    position: relative;
+}
+/* 待办任务 */
+#home_container.boss_container .wait_work ul{
+    height: 154px;
+}
+/* 中间四块统计 */
+#home_container.boss_container .boss_count ul{
+    margin-right: -10px;
+    overflow: hidden;
+}
+#home_container.boss_container .boss_count ul li{
+    float: left;
+    width: 200px;
+    height: 90px;
+    margin: 0 10px 10px 0;
+    outline-offset: -1px;
+}
+#home_container.boss_container .boss_count li label{
+    display: block;
+    margin: 20px 0 15px 0;
+    color: #999;
+    text-indent: 15px;
+}
+#home_container.boss_container .boss_count li h3{
+    font-size: 18px;
+    text-indent: 15px;
+    color: #fa7272;
+    margin: 0;
+}
+#home_container.boss_container .boss_count li.sum_money{
+    outline: 1px solid #fda9a4;
+}
+#home_container.boss_container .boss_count li.back_money{
+    outline: 1px solid #b0efc0;
+}
+#home_container.boss_container .boss_count li.expect_num{
+    outline: 1px solid #a9dffe;
+}
+#home_container.boss_container .boss_count li.recover_car{
+    outline: 1px solid #fec09a;
+}
+#home_container.boss_container .boss_count li div{
+    float: left;
+}
+#home_container.boss_container .boss_count li p{
+    float: right;
+    width: 60px;
+    line-height: 90px;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+}
+#home_container.boss_container .boss_count li.sum_money p{
+    background: #fda9a4;
+}
+#home_container.boss_container .boss_count li.back_money p{
+    background: #b0efc0;
+}
+#home_container.boss_container .boss_count li.expect_num p{
+    background: #a9dffe;
+}
+#home_container.boss_container .boss_count li.recover_car p{
+    background: #fec09a;
+}
+/* 经销商TOP10 产品TOP5 */
+
+/* 年度申请量 */
+
+/* 年度放款量 */
+.year_money .content{
+    padding: 10px;
+    position: relative;
+}
+.scale{
+    color: #999;
+    font-size: 12px;
+}
+.money_scale{
+    float: left;
+    width: 46px;
+    text-align: right;
+    box-sizing: border-box;
+    border-right: 1px solid #ddd;
+    padding-top: 10px;
+    margin-bottom: 20px;
+}
+.money_scale p{
+    height: 40px;
+    padding-right: 4px;
+}
+.month_scale{
+    border-top: 1px solid #ddd;
+    position: absolute;
+    top: 219px;
+    left: 56px;
+    right: 10px;
+    padding-top: 6px;
+}
+.month_scale span{
+    display: inline-block;
+    width: 26px;
+}
+.chart{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    bottom: 30px;
+    left: 56px;
+    padding-top: 10px;
+}
+.chart ul{
+    font-size: 0;
+    overflow: hidden;
+}
+.chart ul li{
+    display: inline-block;
+    width: 8px;
+    height: 40px;
+    margin-left: 18px;
+    background: #ddd;
+    cursor: pointer;
+}
+.chart ul li.max{
+    background: #9bdcfb;
+}
+.chart ul li:hover{
+    background: #9bdcfb;
+}
+.chart .top_scale{
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 104px;
+    line-height: 1px;
+    border-bottom: 1px dashed #ddd;
+}
+.chart .bottom_scale{
+    position: absolute;
+    top: 170px;
+    left: 0;
+    width: 74px;
+    line-height: 1px;
+    border-bottom: 1px dashed #ddd;
+}
+.chart .now_number{
+    position: absolute;
+    top: 10px;
+    left: 110px;
+    font-size: 12px;
+    color: #fd7a7a;
+}
+.year_money .month_scale span{
+    text-align: right;
+}
+/* 年度申请量 */
+.year_apply .content{
+    padding: 10px;
+    position: relative;
+
+}
+.year_apply .chart{
+    left: 51px;
+}
+.year_apply .chart ul{
+    overflow: visible;
+}
+.year_apply .chart ul li{
+    width: 30px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: transparent;
+    border-left: 1px solid #ddd;
+    position: relative;
+}
+.year_apply .chart ul li:hover:before{
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: -8px;
+    left: -5px;
+    box-sizing: border-box;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    border: 2px solid #6dcaf5;
+    background: #fff;
+}
+.year_apply .chart ul li.max{
+    border-left: 1px solid #9bdcfb;
+}
+.year_apply .chart ul li:hover{
+    border-left: 2px solid #9bdcfb;
+}
+.year_apply .money_scale{
+    width: 42px;
+}
+.year_apply .month_scale{
+    left: 52px;
+}
+.year_apply .month_scale span{
+    width: 29px;
+}
+.year_apply .chart .now_number{
+    text-indent: 8px;
+}
+/* 经销商TOP10 产品TOP5 */
+.rank_panel .content{
+    margin-top: 10px;
+}
+.rank_panel .content{
+    position: relative;
+}
+.rank_panel .scale{
+    width: 30px;
+    border-right: 1px solid #ddd;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    float: left;
+}
+.rank_panel .number_rank{
+    float: right;
+    width: 50px;
+    margin: 10px 10px 0 0;
+    border-left: 1px solid #ddd;
+    border-right: none;
+    padding: 0;
+}
+.rank_panel .number_scale{
+    float: none;
+    position: absolute;
+    top: 210px;
+    left: 30px;
+    right: 60px;
+    width: auto;
+    padding: 5px 0 0 0;
+    border: none;
+    border-top: 1px solid #ddd;
+
+}
+.rank_panel .scale p{
+    height: 20px;
+    padding-right: 5px;
+    text-align: right;
+}
+.rank_panel .number_rank p{
+    height: 20px;
+    padding-left: 4px;
+    text-align: left;
+}
+.rank_panel .number_scale span{
+    display: inline-block;
+    width: 50px;
+    text-align: right;
+}
+.rank_panel .chart{
+    top: 0;
+    bottom: 0;
+    left: 30px;
+}
+.rank_panel .chart ul li{
+    display: block;
+    height: 8px;
+    margin: 0 0 12px 0;
+}
+.rank_panel .scale.rank_dashed{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 30px;
+    overflow: hidden;
+    width: 100%;
+}
+.rank_dashed div{
+    float: left;
+    width: 1px;
+    height: 200px;
+    margin-left: 49px;
+    box-sizing: border-box;
+    border-right: 1px dashed #ddd;
+}
+.rank_panel .tabpanel+.tabpanel .scale p{
+    height: 40px;
+}
+.rank_panel .tabpanel+.tabpanel .chart ul li{
+    margin: 0 0 32px 0;
+}
+/* 按照渠道、车型统计*/
+.car_count .center_count{
+    width: 86px;
+    height: 86px;
+    text-align: center;
+    position: absolute;
+    top: 35px;
+    left: 57px;
+
+}
+.car_count .center_count p{
+    font-size: 18px;
+    color: #333;
+    margin: 28px 0 5px 0;
+}
+.car_count .center_count label{
+    font-size: 12px;
+    color: #999;
+}
+.car_count .count_list{
+    position: absolute;
+    left: 200px;
+    top: 15px;
+}
+.car_count .count_list li{
+    color: #666;
+    font-size: 14px;
+    margin: 8px 0;
+}
+.car_count .count_list .count_precent{
+    display: inline-block;
+    width: 50px;
+    line-height: 20px;
+    margin-right: 5px;
+    background: #ddd;
+    color: white;
+    text-align: center;
+    font-size: 12px;
 }

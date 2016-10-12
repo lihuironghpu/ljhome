@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>陆金申华零售业务系统</title>
-    <link href="ljindex.css" rel="stylesheet" />
+    <link href="css/ljindex.css" rel="stylesheet" />
     <!-- IE 9以下-->
-    <!-- [if It IE 9 ] >
+    <!-- [if lte IE 9 ] >
         <script>
             var newTags=["header","footer","aside","article","canvas","details","figcaption","figure","hgroup","menu","nav","section","summary","time","mark","audio","video"];
             for(var i=0;i<newTags.length;i++){
@@ -18,12 +18,12 @@
     <div id="home_container">
         <div class="content">
             <!-- 左侧主要功能操作-->
-            <section class="main_control">
+            <div class="section main_control">
                 <!-- 待办任务-->
-                <article class="con_box wait_work">
-                    <header>
+                <div class="article con_box wait_work">
+                    <div class="header">
                         待办任务
-                    </header>
+                    </div>
                     <ul>
                         <li class="paragraph">
                             <p>申请提报</p>
@@ -50,12 +50,12 @@
                             <span></span>
                         </li>
                     </ul>
-                </article>
+                </div>
                 <!-- 消息提醒／公告栏-->
-                <article class="con_box mes_notice">
-                    <header id="mesAndNotiveHeader">
+                <div class="article con_box mes_notice">
+                    <div id="mesAndNotiveHeader" class="header">
                         <a class="active" onclick="showTab('1')">消息提醒</a><a onclick="showTab('2')">公告栏</a>
-                    </header>
+                    </div>
                     <div class="both_content">
                         <div id="mesCon">
                             <!-- 消息提醒-->
@@ -92,15 +92,15 @@
                             <p class="paragraph">公告005</p>
                         </div>
                     </div>
-                </article>
-            </section>
+                </div>
+            </div>
 
             <!-- 中间工作台统计-->
-            <section class="work_count">
-                <article class="con_box work_center">
-                    <header>
+            <div class="section work_count">
+                <div class="article con_box work_center">
+                    <div class="header">
                         工作台
-                    </header>
+                    </div>
                     <div>
                         <div class="count_money">
                             <label>本月累计融资额（元）</label>
@@ -118,7 +118,7 @@
 
                         </ul>
                     </div>
-                </article>
+                </div>
                 <div class="countlist">
                     <ul>
                         <li class="work_dtj">
@@ -153,10 +153,10 @@
                         </li>
                     </ul>
                 </div>
-            </section>
+            </div>
 
             <!-- 右侧快捷菜单-->
-            <section class="quick_menu">
+            <div class="section quick_menu">
                 <div class="con_box main_menu">
                     <a class="menu_apply">
                         <p>申请提报</p>
@@ -176,24 +176,24 @@
                         <p>付款查询</p>
                     </a>
                 </div>
-            </section>
+            </div>
         </div>
-        <footer>
+        <div class="footer">
             <a class="edit_pwd" href="">密码修改</a><a href="" class="down_work">下载任务</a>
-        </footer>
+        </div>
     </div>
     <div class="dialog" id="mesDialog" style="display: none">
-        <article class="container">
-            <header>
+        <div class="article container">
+            <div class="header">
                 <h4 id="diaTitle">消息提醒01</h4>
                 <a href="javascript:void(0)" onclick="toggleDialog(false)"></a>
-            </header>
-            <section class="content">
+            </div>
+            <div class="section content">
                 <!-- 此处可嵌入iframe-->
-                <iframe id="mesIframe" src="bg.jpg" width="460" height="280" frameborder="0" style="overflow: hidden;"></iframe>
-            </section>
-        </article>
+                <iframe id="mesIframe" src="img/bg.jpg" width="460" height="280" frameborder="0" style="overflow: hidden;"></iframe>
+            </div>
+        </div>
     </div>
-    <script src="ljindex.js"></script>
+    <script src="js/ljindex.js"></script>
 </body>
 </html>

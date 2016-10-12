@@ -4,11 +4,12 @@
 //判断屏幕分辨率
 (function(){
     var screenHeight = window.screen.height;
-    var sereenWidth = window.screen.width;
+    //var sereenWidth = window.screen.width;
+    //var validHeight = window.screen.availHeight;
     if(screenHeight > 900){
         document.getElementById("home_container").className = "container_big";
     }
-    if(sereenWidth <= 1280){
+    if(screenHeight <= 768){
         document.getElementById("home_container").className = "container_small";
     }
 })();
