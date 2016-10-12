@@ -19,370 +19,391 @@
 
 </head>
 <body>
-    <div id="home_container" class="boss_container">
-        <div class="content">
-            <!-- 待办任务 -->
-            <div class="section left_section wait_work">
-                <div class="header">
-                    待办任务
-                </div>
-                <ul>
-                    <li class="paragraph">
-                        <p>申请提报</p>
-                        <span>2</span>
-                    </li>
-                    <li class="paragraph">
-                        <p>合同信息录入</p>
-                        <span>5</span>
-                    </li>
-                    <li class="paragraph">
-                        <p>合同下载</p>
-                        <span>6</span>
-                    </li>
-                    <li class="paragraph">
-                        <p>请款</p>
-                        <span>10</span>
-                    </li>
-                </ul>
+<div id="home_container" class="boss_container">
+    <div class="content">
+        <!-- 待办任务 -->
+        <div class="section left_section wait_work">
+            <div class="header">
+                待办任务
             </div>
-            <!-- 总统计 -->
-            <div class="section center_section boss_count">
-                <ul>
-                    <li class="sum_money">
-                        <div>
-                            <label>总资产</label>
-                            <h3>$<span id="sumOne">300,000.00</span></h3>
-                        </div>
-                        <p>
-                            <span id="perOne">200</span>笔
-                        </p>
-                    </li>
-                    <li class="back_money">
-                        <div>
-                            <label>租金回笼量</label>
-                            <h3>$<span id="sumTwo">300,000.00</span></h3>
-                        </div>
-                        <p>
-                            <span id="perTwo">66.66</span>%
-                        </p>
-                    </li>
-                    <li class="expect_num">
-                        <div>
-                            <label>预期量</label>
-                            <h3><span id="sumThree">20</span>笔</h3>
-                        </div>
-                        <p>
-                            <span id="perThree">2</span>%
-                        </p>
-                    </li>
-                    <li class="recover_car">
-                        <div>
-                            <label>车辆回收率</label>
-                            <h3><span id="sumFour">10辆</span></h3>
-                        </div>
-                        <p>
-                            <span id="perFour">0.1</span>%
-                        </p>
-                    </li>
-                </ul>
-            </div>
-            <!-- 按渠道按车型统计-->
-            <div class="section right_section car_count">
-                <div id="" class="header tabheader">
-                    <a class="active" onclick="showTab(event,1)">按渠道统计</a><a onclick="showTab(event,2)">按车型统计</a>
-                </div>
-                <div class="tabbody">
-                    <div class="tabpanel">
-                        <!--渠道统计内容 & 车型统计内容-->
-
-                        <svg  xmlns="http://www.w3.org/2000/svg" width="120px" height="120px" id="circlePic" style="margin: 18px 40px;">
-                            <circle r="43" cx="60" cy="60" fill="#fff" id="coverCircle"></circle>
-                            <!-- 此处是饼状图-->
-                        </svg>
-                        <div class="center_count">
-                            <!-- 饼状图中心区域内容-->
-                            <p id="sumNum">0</p>
-                            <label for="">总销售量</label>
-                        </div>
-                        <ul class="count_list" id="countList">
-                            <!-- 右侧列表-->
-                            <!--<li>-->
-                                <!--<span class="count_precent">45%</span>-->
-                                <!--<span class="count_names">经销商 </span>-->
-                                <!--<span class="count_num">1800</span>-->
-                            <!--</li>-->
-                        </ul>
-                    </div>
-                    <div class="tabpanel">
-                        <!--渠道统计内容 & 车型统计内容-->
-                        <div id="circlePic2" style="margin: 18px 40px;">
-
-                        </div>
-                        <svg width="120px" height="120px" id="circlePic2" style="margin: 18px 40px;">
-                            <circle r="43" cx="60" cy="60" fill="#fff" id="coverCircle2"></circle>
-                            <!-- 此处是饼状图-->
-                        </svg>
-                        <div class="center_count">
-                            <!-- 饼状图中心区域内容-->
-                            <p id="sumNum2">0</p>
-                            <label for="">总销售量</label>
-                        </div>
-                        <ul class="count_list" id="countList2">
-                            <!-- 右侧列表-->
-                            <!--<li>-->
-                            <!--<span class="count_precent">45%</span>-->
-                            <!--<span class="count_names">经销商 </span>-->
-                            <!--<span class="count_num">1800</span>-->
-                            <!--</li>-->
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <ul>
+                <li class="paragraph">
+                    <p>申请提报</p>
+                    <span>2</span>
+                </li>
+                <li class="paragraph">
+                    <p>合同信息录入</p>
+                    <span>5</span>
+                </li>
+                <li class="paragraph">
+                    <p>合同下载</p>
+                    <span>6</span>
+                </li>
+                <li class="paragraph">
+                    <p>请款</p>
+                    <span>10</span>
+                </li>
+            </ul>
         </div>
-        <div class="content">
-            <!-- 经销商TOP10 产品TOP5 -->
-            <div class="section left_section rank_panel">
-                <div id="11" class="header tabheader">
-                    <a class="active" onclick="showTab(event,1)">经销商TOP10</a><a onclick="showTab(event,2)">产品TOP5</a>
-                </div>
-                <div class="tabbody">
-                    <div class="tabpanel">
-                        <!--经销商TOP10内容-->
-                        <div class="content">
-                            <!-- 排行标尺-->
-                            <div class="scale rank_scale">
-                                <p style="color:#b2f1a6;">1</p>
-                                <p style="color:#a9e7fe;">2</p>
-                                <p style="color:#fec8a6;">3</p>
-                                <p>4</p>
-                                <p>5</p>
-                                <p>6</p>
-                                <p>7</p>
-                                <p>8</p>
-                                <p>9</p>
-                                <p>10</p>
-                            </div>
-                            <!-- 右侧名次数量-->
-                            <div class="scale number_rank" id="numberRank">
-                                <p>3000</p>
-
-                                <p>2400</p>
-
-                                <p>2200</p>
-
-                                <p>1900</p>
-
-                                <p>1780</p>
-
-                                <p>1700</p>
-
-                                <p>1500</p>
-
-                                <p>1100</p>
-
-                                <p>750</p>
-
-                                <p>600</p>
-                            </div>
-                            <!-- 中间数量虚线-->
-                            <div class="scale rank_dashed">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                            <!-- 底部数量标尺-->
-                            <div class="scale number_scale" id="numberScale">
-                                <span>600</span><!--
-                                --><span>1200</span><!--
-                                --><span>1800</span><!--
-                                --><span>2400</span><!--
-                                --><span>3000</span>
-                            </div>
-                            <div class="chart">
-
-                                <ul id="chartUl">
-                                    <li style="width: 250px;background: #b2f1a6;"></li>
-                                    <li style="width: 220px;background: #a9e7fe;"></li>
-                                    <li style="width: 200px;background: #fec8a6;"></li>
-                                    <li style="width: 160px;"></li>
-                                    <li style="width: 150px"></li>
-                                    <li style="width: 130px;"></li>
-                                    <li style="width: 100px;"></li>
-                                    <li style="width: 80px;"></li>
-                                    <li style="width: 60px;"></li>
-                                    <li style="width: 50px;"></li>
-                                </ul>
-                            </div>
-
-                        </div>
-
+        <!-- 总统计 -->
+        <div class="section center_section boss_count">
+            <ul>
+                <li class="sum_money">
+                    <div>
+                        <label>总资产</label>
+                        <h3>$<span id="sumOne">300,000.00</span></h3>
                     </div>
-                    <div class="tabpanel">
-                        <!--产品TOP5内容-->
-                        <div class="content">
-                            <!-- 排行标尺-->
-                            <div class="scale rank_scale">
-                                <p style="color:#b2f1a6;">1</p>
-                                <p style="color:#a9e7fe;">2</p>
-                                <p style="color:#fec8a6;">3</p>
-                                <p>4</p>
-                                <p>5</p>
-                            </div>
-                            <!-- 右侧名次数量-->
-                            <div class="scale number_rank" id="numberRank2">
-                                <p>3000</p>
-                                <p>2400</p>
-                                <p>2200</p>
-                                <p>1900</p>
-                                <p>1780</p>
-                            </div>
-                            <!-- 中间数量虚线-->
-                            <div class="scale rank_dashed">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                            <!-- 底部数量标尺-->
-                            <div class="scale number_scale" id="numberScale2">
-                                <span>600</span><!--
-                                --><span>1200</span><!--
-                                --><span>1800</span><!--
-                                --><span>2400</span><!--
-                                --><span>3000</span>
-                            </div>
-                            <div class="chart">
-
-                                <ul id="chartUl2">
-                                    <li style="width: 250px;background: #b2f1a6;"></li>
-                                    <li style="width: 220px;background: #a9e7fe;"></li>
-                                    <li style="width: 200px;background: #fec8a6;"></li>
-                                    <li style="width: 160px;"></li>
-                                    <li style="width: 150px"></li>
-                                </ul>
-                            </div>
-
-                        </div>
-
+                    <p>
+                        <span id="perOne">200</span>笔
+                    </p>
+                </li>
+                <li class="back_money">
+                    <div>
+                        <label>租金回笼量</label>
+                        <h3>$<span id="sumTwo">300,000.00</span></h3>
                     </div>
-                </div>
+                    <p>
+                        <span id="perTwo">66.66</span>%
+                    </p>
+                </li>
+                <li class="expect_num">
+                    <div>
+                        <label>预期量</label>
+                        <h3><span id="sumThree">20</span>笔</h3>
+                    </div>
+                    <p>
+                        <span id="perThree">2</span>%
+                    </p>
+                </li>
+                <li class="recover_car">
+                    <div>
+                        <label>车辆回收率</label>
+                        <h3><span id="sumFour">10辆</span></h3>
+                    </div>
+                    <p>
+                        <span id="perFour">0.1</span>%
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <!-- 按渠道按车型统计-->
+        <div class="section right_section car_count">
+            <div id="" class="header tabheader">
+                <a class="active" onclick="showTab(event,1)">按渠道统计</a><a onclick="showTab(event,2)">按车型统计</a>
             </div>
-            <!-- 年度申请量 -->
-            <div class="section center_section year_apply">
-                <div class="header">
-                    年度申请量
-                </div>
-                <div class="content">
-                    <div class="scale money_scale" id="moneyScale">
-                        <p>2500</p>
+            <div class="tabbody">
+                <div class="tabpanel" style="height:154px;">
+                    <!--渠道统计内容 & 车型统计内容-->
 
-                        <p>2000</p>
-
-                        <p>1500</p>
-
-                        <p>1000</p>
-
-                        <p>500</p>
-                    </div>
-                    <!-- 嵌入SVG折线-->
-                    <svg width="358" height="200" version="1.1"
-                         xmlns="http://www.w3.org/2000/svg" style="margin-top: 10px;position: absolute;">
-
-                        <polyline id="polyline" points="0,150 30,140 60,100 90,0 120,40 150,40 180,60 210,60 240,80 270,80 300,100 330,80"
-                                  style="fill:none;stroke:#fd7676;stroke-width:2"/>
+                    <svg  xmlns="http://www.w3.org/2000/svg" width="120px" height="120px" id="circlePic" style="margin: 18px 40px;">
+                        <circle r="43" cx="60" cy="60" fill="#fff" id="coverCircle"></circle>
+                        <!-- 此处是饼状图-->
                     </svg>
-                    <div id="polylineVmlDoc" style="margin-top: 10px;">
+                    <div id="circlePicVml" style="position: absolute; top: 18px; right: 0; bottom: 0; left: 40px;">
 
                     </div>
-                    <!--<v:PolyLine filled="false" Points="0,0 0,100 20,150 200,100" style="position:relative"/>-->
-                    <!--<iframe id="polylineFrame" src="img/polyline.svg" width="358" height="200" frameborder="0" style="margin-top: 10px;position: absolute;"></iframe>-->
-
-                    <div class="chart">
-                        <ul id="applyNums">
-                            <li style="height: 80px;" data_apply="100" data_month="1"></li>
-                            <li style="height: 80px;" data_apply="200" data_month="2"></li>
-                            <li style="height: 40px;" data_apply="6,000,000.00" data_month="3"></li>
-                            <li style="height: 200px;" data_apply="5,000,000.00" data_month="4"></li>
-                            <li style="height: 120px" data_apply="2,000,000.00" data_month="5"></li>
-                            <li style="height: 160px;" data_apply="3,000,000.00" data_month="6"></li>
-                            <li style="height: 100px;" data_apply="4,000,000.00" data_month="7"></li>
-                            <li style="height: 80px;" data_apply="2,200,000.00" data_month="8"></li>
-                            <li style="height: 110px;" data_apply="3,400,000.00" data_month="9"></li>
-                            <li style="height: 130px;" data_apply="5,000,000.00" data_month="10"></li>
-                            <li style="height: 60px;" data_apply="4,900,000.00" data_month="11"></li>
-                            <li style="height: 90px;width: 10px;" data_apply="2,090,000.00" data_month="12"></li>
-                        </ul>
-                        <div class="top_scale" id="applyLineTop"></div>
-                        <div class="bottom_scale" id="applyLineBottom"></div>
-                        <span class="now_number" id="applyCurrentNum"></span>
+                    <div class="center_count">
+                        <!-- 饼状图中心区域内容-->
+                        <p id="sumNum">0</p>
+                        <label for="">总销售量</label>
                     </div>
-                    <div class="scale month_scale">
-                        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
-                    </div>
+                    <ul class="count_list" id="countList">
+                        <!-- 右侧列表-->
+                        <!--<li>-->
+                        <!--<span class="count_precent">45%</span>-->
+                        <!--<span class="count_names">经销商 </span>-->
+                        <!--<span class="count_num">1800</span>-->
+                        <!--</li>-->
+                    </ul>
                 </div>
+                <div class="tabpanel" style="height:154px;">
+                    <!--渠道统计内容 & 车型统计内容-->
 
-            </div>
 
-            <!-- 年度放款量-->
-            <div class="section right_section year_money">
-                <div class="header">
-                    年度放款量
-                </div>
-                <div class="content">
-                    <div class="scale money_scale" id="moneyScaleNum">
-                        <p>6000万</p>
+                    <svg width="120px" height="120px" id="circlePic2" style="margin: 18px 40px;">
+                        <circle r="43" cx="60" cy="60" fill="#fff" id="coverCircle2"></circle>
+                        <!-- 此处是饼状图-->
+                    </svg>
+                    <div id="circlePic2Vml" style="position: absolute; top: 18px; right: 0; bottom: 0; left: 40px;">
 
-                        <p>4800万</p>
-
-                        <p>3600万</p>
-
-                        <p>2400万</p>
-
-                        <p>1200万</p>
                     </div>
-                    <div class="chart" id="moneyNums">
-
-                        <ul>
-                            <li style="height: 70px;" data_money="1,200,000.00"></li>
-                            <li style="height: 80px;" data_money="1,800,000.00"></li>
-                            <li style="height: 40px;" class="min" data_money="6,000,000.00"></li>
-                            <li style="height: 200px;" class="max" data_money="5,000,000.00"></li>
-                            <li style="height: 120px" data_money="2,000,000.00"></li>
-                            <li style="height: 160px;" data_money="3,000,000.00"></li>
-                            <li style="height: 100px;" data_money="4,000,000.00"></li>
-                            <li style="height: 80px;" data_money="2,200,000.00"></li>
-                            <li style="height: 110px;" data_money="3,400,000.00"></li>
-                            <li style="height: 130px;" data_money="5,000,000.00"></li>
-                            <li style="height: 60px;" data_money="4,900,000.00"></li>
-                            <li style="height: 90px;" data_money="2,090,000.00"></li>
-                        </ul>
-                        <div class="top_scale" id="countLineTop"></div>
-                        <div class="bottom_scale" id="countLineBottom"></div>
-                        <span class="now_number" id="countCurrentNum"></span>
+                    <div class="center_count">
+                        <!-- 饼状图中心区域内容-->
+                        <p id="sumNum2">0</p>
+                        <label for="">总销售量</label>
                     </div>
-                    <div class="scale month_scale">
-                        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
-                    </div>
+                    <ul class="count_list" id="countList2">
+                        <!-- 右侧列表-->
+                        <!--<li>-->
+                        <!--<span class="count_precent">45%</span>-->
+                        <!--<span class="count_names">经销商 </span>-->
+                        <!--<span class="count_num">1800</span>-->
+                        <!--</li>-->
+                    </ul>
                 </div>
             </div>
-
         </div>
     </div>
+    <div class="content">
+        <!-- 经销商TOP10 产品TOP5 -->
+        <div class="section left_section rank_panel">
+            <div id="11" class="header tabheader">
+                <a class="active" onclick="showTab(event,1)">经销商TOP10</a><a onclick="showTab(event,2)">产品TOP5</a>
+            </div>
+            <div class="tabbody">
+                <div class="tabpanel">
+                    <!--经销商TOP10内容-->
+                    <div class="content">
+                        <!-- 排行标尺-->
+                        <div class="scale rank_scale">
+                            <p style="color:#b2f1a6;">1</p>
+                            <p style="color:#a9e7fe;">2</p>
+                            <p style="color:#fec8a6;">3</p>
+                            <p>4</p>
+                            <p>5</p>
+                            <p>6</p>
+                            <p>7</p>
+                            <p>8</p>
+                            <p>9</p>
+                            <p>10</p>
+                        </div>
+                        <!-- 右侧名次数量-->
+                        <div class="scale number_rank" id="numberRank">
+                            <p>3000</p>
+
+                            <p>2400</p>
+
+                            <p>2200</p>
+
+                            <p>1900</p>
+
+                            <p>1780</p>
+
+                            <p>1700</p>
+
+                            <p>1500</p>
+
+                            <p>1100</p>
+
+                            <p>750</p>
+
+                            <p>600</p>
+                        </div>
+                        <!-- 中间数量虚线-->
+                        <div class="scale rank_dashed">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <!-- 底部数量标尺-->
+                        <div class="scale number_scale" id="numberScale">
+                            <span>600</span><!--
+                                --><span>1200</span><!--
+                                --><span>1800</span><!--
+                                --><span>2400</span><!--
+                                --><span>3000</span>
+                        </div>
+                        <div class="chart">
+
+                            <ul id="chartUl">
+                                <li style="width: 250px;background: #b2f1a6;"></li>
+                                <li style="width: 220px;background: #a9e7fe;"></li>
+                                <li style="width: 200px;background: #fec8a6;"></li>
+                                <li style="width: 160px;"></li>
+                                <li style="width: 150px"></li>
+                                <li style="width: 130px;"></li>
+                                <li style="width: 100px;"></li>
+                                <li style="width: 80px;"></li>
+                                <li style="width: 60px;"></li>
+                                <li style="width: 50px;"></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="tabpanel">
+                    <!--产品TOP5内容-->
+                    <div class="content">
+                        <!-- 排行标尺-->
+                        <div class="scale rank_scale">
+                            <p style="color:#b2f1a6;">1</p>
+                            <p style="color:#a9e7fe;">2</p>
+                            <p style="color:#fec8a6;">3</p>
+                            <p>4</p>
+                            <p>5</p>
+                        </div>
+                        <!-- 右侧名次数量-->
+                        <div class="scale number_rank" id="numberRank2">
+                            <p>3000</p>
+                            <p>2400</p>
+                            <p>2200</p>
+                            <p>1900</p>
+                            <p>1780</p>
+                        </div>
+                        <!-- 中间数量虚线-->
+                        <div class="scale rank_dashed">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <!-- 底部数量标尺-->
+                        <div class="scale number_scale" id="numberScale2">
+                            <span>600</span><!--
+                                --><span>1200</span><!--
+                                --><span>1800</span><!--
+                                --><span>2400</span><!--
+                                --><span>3000</span>
+                        </div>
+                        <div class="chart">
+
+                            <ul id="chartUl2">
+                                <li style="width: 250px;background: #b2f1a6;"></li>
+                                <li style="width: 220px;background: #a9e7fe;"></li>
+                                <li style="width: 200px;background: #fec8a6;"></li>
+                                <li style="width: 160px;"></li>
+                                <li style="width: 150px"></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- 年度申请量 -->
+        <div class="section center_section year_apply">
+            <div class="header">
+                年度申请量
+            </div>
+            <div class="content">
+                <div class="scale money_scale" id="moneyScale">
+                    <p>2500</p>
+
+                    <p>2000</p>
+
+                    <p>1500</p>
+
+                    <p>1000</p>
+
+                    <p>500</p>
+                </div>
+                <!-- 嵌入SVG折线-->
+                <svg width="358" height="200" version="1.1"
+                     xmlns="http://www.w3.org/2000/svg" style="margin-top: 10px;position: absolute;">
+
+                    <polyline id="polyline" points="0,150 30,140 60,100 90,0 120,40 150,40 180,60 210,60 240,80 270,80 300,100 330,80"
+                              style="fill:none;stroke:#fd7676;stroke-width:2"/>
+                </svg>
+                <div id="polylineVmlDoc" style="margin-top: 10px;">
+
+                </div>
+                <!--<v:PolyLine filled="false" Points="0,0 0,100 20,150 200,100" style="position:relative"/>-->
+                <!--<iframe id="polylineFrame" src="img/polyline.svg" width="358" height="200" frameborder="0" style="margin-top: 10px;position: absolute;"></iframe>-->
+
+                <div class="chart">
+                    <ul id="applyNums">
+                        <li style="height: 80px;" data_apply="100" data_month="1"></li>
+                        <li style="height: 80px;" data_apply="200" data_month="2"></li>
+                        <li style="height: 40px;" data_apply="6,000,000.00" data_month="3"></li>
+                        <li style="height: 200px;" data_apply="5,000,000.00" data_month="4"></li>
+                        <li style="height: 120px" data_apply="2,000,000.00" data_month="5"></li>
+                        <li style="height: 160px;" data_apply="3,000,000.00" data_month="6"></li>
+                        <li style="height: 100px;" data_apply="4,000,000.00" data_month="7"></li>
+                        <li style="height: 80px;" data_apply="2,200,000.00" data_month="8"></li>
+                        <li style="height: 110px;" data_apply="3,400,000.00" data_month="9"></li>
+                        <li style="height: 130px;" data_apply="5,000,000.00" data_month="10"></li>
+                        <li style="height: 60px;" data_apply="4,900,000.00" data_month="11"></li>
+                        <li style="height: 90px;width: 10px;" data_apply="2,090,000.00" data_month="12"></li>
+                    </ul>
+                    <div class="top_scale" id="applyLineTop"></div>
+                    <div class="bottom_scale" id="applyLineBottom"></div>
+                    <span class="now_number" id="applyCurrentNum"></span>
+                </div>
+                <div class="scale month_scale">
+                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 年度放款量-->
+        <div class="section right_section year_money">
+            <div class="header">
+                年度放款量
+            </div>
+            <div class="content">
+                <div class="scale money_scale" id="moneyScaleNum">
+                    <p>6000万</p>
+
+                    <p>4800万</p>
+
+                    <p>3600万</p>
+
+                    <p>2400万</p>
+
+                    <p>1200万</p>
+                </div>
+                <div class="chart" id="moneyNums">
+
+                    <ul>
+                        <li style="height: 70px;" data_money="1,200,000.00"></li>
+                        <li style="height: 80px;" data_money="1,800,000.00"></li>
+                        <li style="height: 40px;" class="min" data_money="6,000,000.00"></li>
+                        <li style="height: 200px;" class="max" data_money="5,000,000.00"></li>
+                        <li style="height: 120px" data_money="2,000,000.00"></li>
+                        <li style="height: 160px;" data_money="3,000,000.00"></li>
+                        <li style="height: 100px;" data_money="4,000,000.00"></li>
+                        <li style="height: 80px;" data_money="2,200,000.00"></li>
+                        <li style="height: 110px;" data_money="3,400,000.00"></li>
+                        <li style="height: 130px;" data_money="5,000,000.00"></li>
+                        <li style="height: 60px;" data_money="4,900,000.00"></li>
+                        <li style="height: 90px;" data_money="2,090,000.00"></li>
+                    </ul>
+                    <div class="top_scale" id="countLineTop"></div>
+                    <div class="bottom_scale" id="countLineBottom"></div>
+                    <span class="now_number" id="countCurrentNum"></span>
+                </div>
+                <div class="scale month_scale">
+                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
 <script>
+    if(document.createElementNS){
+    }else{
+        document.namespaces.add("v", "urn:schemas-microsoft-com:vml");
+        var style = document.createStyleSheet();
+        var VMLel = ['line','stroke','polyline','fill','oval','arc'];
+        for (var i=0,l=VMLel.length;i<l;i++) {
+            style.addRule('v\\:'+VMLel[i], "behavior: url(#default#VML);");
+        }
+    }
     //tab切换
     function showTab(e,num){
         var e = e ? e : window.event;
         var targetEle = e.srcElement || e.target;
         targetEle.className = "active";
+        var divList = targetEle.parentNode.parentNode.getElementsByTagName("div");
+        var panelList = [];
+        for(var i = 0 ; i < divList.length ; i++){
+            if(divList[i].className == "tabpanel"){
+                panelList.push(i);
+            }
+        }
         if(num==1){
-            targetEle.parentNode.nextSibling.nextSibling.childNodes[1].style.display = "block";
-            targetEle.parentNode.childNodes[2].className="";
-            targetEle.parentNode.nextSibling.nextSibling.childNodes[3].style.display = "none";
+            divList[panelList[0]].style.display = "block";
+            targetEle.parentNode.getElementsByTagName("a")[1].className="";
+            divList[panelList[1]].style.display = "none";
         }else{
-            targetEle.parentNode.nextSibling.nextSibling.childNodes[3].style.display = "block";
-            targetEle.parentNode.childNodes[1].className="";
-            targetEle.parentNode.nextSibling.nextSibling.childNodes[1].style.display = "none";
+            divList[panelList[1]].style.display = "block";
+            targetEle.parentNode.getElementsByTagName("a")[0].className="";
+            divList[panelList[0]].style.display = "none";
         }
     }
 
@@ -477,12 +498,6 @@
             polylineDoc.setAttribute("points",points);
 
         }else{
-            document.namespaces.add("v", "urn:schemas-microsoft-com:vml");
-            var style = document.createStyleSheet();
-            var VMLel = ['line','stroke','polyline','fill','oval'];
-            for (var i=0,l=VMLel.length;i<l;i++) {
-                style.addRule('v\\:'+VMLel[i], "behavior: url(#default#VML);");
-            }
             var polyLineVml = document.createElement("v:polyline");
             polyLineVml.strokeweight = "2px";
             polyLineVml.strokecolor = "#fd7676";
@@ -588,7 +603,7 @@
         }
     }
 
-//    按渠道／车型统计   传入按照销量排序的数据
+    //    按渠道／车型统计   传入按照销量排序的数据
     var carcountObj = {
 //        渠道统计数据
         channel:{
@@ -620,7 +635,7 @@
         sumNumEle.innerHTML = sumNum;
         for(var i = 0 ;i <arr.length ; i ++ ){
 
-            rotateSum+=arr[i].num/sumNum;
+            rotateSum+=(arr[i].num/sumNum)*360;;
             apaths.push({
                 names: arr[i].names,
                 num: arr[i].num,
@@ -629,65 +644,88 @@
                 pathx: i==0 ? circleObj.cx + circleObj.cr*Math.sin(arr[i].num/sumNum*2*Math.PI) : circleObj.cx + circleObj.cr*Math.sin((arr[i].num/sumNum+apaths[i-1].rotate)*2*Math.PI),
                 pathy : i==0 ? circleObj.cy + circleObj.cr*(Math.cos(arr[i].num/sumNum*2*Math.PI))*-1 : circleObj.cy + circleObj.cr*Math.cos((arr[i].num/sumNum+apaths[i-1].rotate)*2*Math.PI)*-1,
                 isBigArc : arr[i].num/sumNum*360>180 ? 1: 0,
-                rotate: rotateSum,
+                rotate: rotateSum/360,
+                rotateArc: rotateSum,
                 percent: arr[i].num/sumNum
             });
             var curPath = apaths[apaths.length-1];
+            var pathColor = "#ddd";
+            switch (i%10){
+                case 0:
+                    pathColor = "#fda9a4"
+                    break;
+                case 1:
+                    pathColor = "#fe9696"
+                    break;
+                case 2:
+                    pathColor = "#b0efc0"
+                    break;
+                case 3:
+                    pathColor = "#e7efb0"
+                    break;
+                case 4:
+                    pathColor = "#efd7b0"
+                    break;
+                case 5:
+                    pathColor = "#a9dffe"
+                    break;
+                default:
+                    pathColor = "#ddd"
+            }
 
+
+            if(i == arr.length-1){
+                pathColor = "#81edac";
+            }else if(i == arr.length-2){
+                pathColor = "#a9e7fe";
+            }else if(i == arr.length-3) {
+                pathColor = "#fec8a6";
+            }else{
+
+            }
             if(document.createElementNS){
 //                支持SVG的
                 var newPath = document.createElementNS('http://www.w3.org/2000/svg',"path");
 
                 newPath.setAttribute("d","M " + curPath.mx + " " + curPath.my +" A 60 60 "+ 0  +" "+ curPath.isBigArc +" 1 "+curPath.pathx+" "+curPath.pathy+" L 60 60 Z");
-                switch (i%10){
-                    case 0:
-                        newPath.setAttribute("fill", "#fda9a4")
-                        break;
-                    case 1:
-                        newPath.setAttribute("fill", "#fe9696")
-                        break;
-                    case 2:
-                        newPath.setAttribute("fill", "#b0efc0")
-                        break;
-                    case 3:
-                        newPath.setAttribute("fill", "#e7efb0")
-                        break;
-                    case 4:
-                        newPath.setAttribute("fill", "#efd7b0")
-                        break;
-                    case 5:
-                        newPath.setAttribute("fill", "#a9dffe")
-                        break;
-                    default:
-                        newPath.setAttribute("fill", "#ddd");
-                }
-
-
-                if(i == arr.length-1){
-                    newPath.setAttribute("fill", "#81edac");
-                }else if(i == arr.length-2){
-                    newPath.setAttribute("fill", "#a9e7fe");
-                }else if(i == arr.length-3) {
-                    newPath.setAttribute("fill", "#fec8a6");
-                }else{
-
-                }
                 newPath.setAttribute("stroke", "#fff");
                 newPath.setAttribute("data-text",curPath.names);
-
+                newPath.setAttribute("fill", pathColor);
                 newPath.setAttribute("data-num",curPath.num);
                 newPath.setAttribute("data-precent",curPath.percent*100+'%');
                 circlePicEle.insertBefore(newPath,coverCircleEle);
             }else{
+                /*
+                 var polyLineVml = document.createElement("v:polyline");
+                 polyLineVml.strokeweight = "2px";
+                 polyLineVml.strokecolor = "#fd7676";
+                 polyLineVml.points = points;
+                 */
 //                不支持SVG，使用VML
                 //<v:arc filled=false style="position:relative;width:100;height:100" StartAngle="0" EndAngle="270" />
-                var newPathVml = document.createElement("v:arc");
-                newPathVml.filled = "red";
-                newPathVml.strokecolor = "#fff";
-                newPathVml.strokeweight = "1px";
-                newPathVml.style = "width:120;height:120;";
-                newPathVml.StartAngle = curPath.rotate;
-                newPathVml.EndAngle = curPath.num/sumNum*360;
+                var circlePicVmlEle = document.getElementById(circlePicId+"Vml");
+                var newPathVml = document.createElement("v:Arc");
+
+                newPathVml.setAttribute("Filled",false);
+                newPathVml.setAttribute("StartAngle",parseInt(curPath.rotateArc-curPath.num/sumNum*360));
+
+                newPathVml.setAttribute("EndAngle",parseInt(curPath.rotateArc));
+                newPathVml.strokecolor = pathColor;
+                newPathVml.strokeweight = "14pt";
+                newPathVml.setAttribute("style","position:absolute; top:8px;left:8px;");
+
+
+                /*
+                 var newPolyLineVml = document.createElement("v:PolyLine");
+
+                 newPolyLineVml.setAttribute("FillColor",pathColor);
+                 newPolyLineVml.points = curPath.mx+","+curPath.my+" "+curPath.pathx+","+curPath.pathy+" 50,50";
+                 */
+
+                newPathVml.style.width = "108";
+                newPathVml.style.height = "108";
+                circlePicVmlEle.appendChild(newPathVml);
+                //circlePicVmlEle.appendChild(newPolyLineVml);
 
             }
 //            右侧列表
@@ -699,7 +737,7 @@
                 spanPrecentEle.className = "count_precent";
                 spanNamesEle.className = "count_names";
                 spanNumEle.className = "count_names";
-                spanPrecentEle.style.background = newPath.getAttribute("fill");
+                spanPrecentEle.style.background = pathColor;
                 spanPrecentEle.innerHTML = (curPath.percent*100*10000/10000).toFixed(2) + '%';
                 spanNamesEle.innerHTML = curPath.names+": ";
                 spanNumEle.innerHTML = curPath.num;
@@ -713,7 +751,7 @@
 
     }
 
-//    中间区域统计数据回显{sumcount:{num:300000,per:200},backmoney:{num:300000,per:66.66%},expectnum:{num:20,per:1},recovercar:{num:10,per:0.1}}
+    //    中间区域统计数据回显{sumcount:{num:300000,per:200},backmoney:{num:300000,per:66.66%},expectnum:{num:20,per:1},recovercar:{num:10,per:0.1}}
     setSumcount({sumcount:{num:300000,per:200},backmoney:{num:300000,per:"66.66"},expectnum:{num:20,per:1},recovercar:{num:10,per:0.1}});
     function setSumcount(obj){
         document.getElementById("sumOne").innerHTML = obj.sumcount.num;
@@ -726,7 +764,7 @@
         document.getElementById("perFour").innerHTML = obj.recovercar.per;
     }
 
-//    经销商TOP10 产品TOP5 {company:{num1:{names:"XX公司",num:3000},....},product:{num1:{names:"XX产品",num:2000},....}}
+    //    经销商TOP10 产品TOP5 {company:{num1:{names:"XX公司",num:3000},....},product:{num1:{names:"XX产品",num:2000},....}}
     var topData = {
         company: {
             num1: {names:"XX公司1",num:3000},
@@ -749,7 +787,7 @@
         }
     };
 
-//    设置经销商TOP10 产品TOP5
+    //    设置经销商TOP10 产品TOP5
     setTopCount(topData.company,"chartUl","numberRank","numberScale",10);
     setTopCount(topData.product,"chartUl2","numberRank2","numberScale2",5);
     function setTopCount(objchild,companyEleId,numberRankEleId,numberScaleEleId,topNum){
