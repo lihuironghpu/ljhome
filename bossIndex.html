@@ -284,7 +284,7 @@
                         <polyline id="polyline" points="0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0"
                                   style="fill:none;stroke:#fd7676;stroke-width:2"/>
                     </svg>
-                    <div id="polylineVmlDoc" style="position: absolute;right:8px">
+                    <div id="polylineVmlDoc" style="position: absolute;right:8px;height: 200px;">
 
                     </div>
                     <ul id="applyNums" style="right: 8px;">
@@ -294,8 +294,11 @@
                     <div class="bottom_scale" id="applyLineBottom"></div>
                     <span class="now_number" id="applyCurrentNum"></span>
                 </div>
-                <div class="scale month_scale" id="bottomScale" style="left: auto;right: 13px;">
+                <div class="scale month_scale">
                     <!--<span>1</span>-->
+                    <div id="bottomScale" style="position:absolute;left: auto;right: 13px;">
+
+                    </div>
                 </div>
             </div>
 
@@ -322,9 +325,13 @@
                     <div class="bottom_scale" id="countLineBottom"></div>
                     <span class="now_number" id="countCurrentNum"></span>
                 </div>
-                <div class="scale month_scale" id="bottomScale2" style="left: auto;right: 20px;">
+                <div class="scale month_scale">
                     <!--<span>1</span>-->
+                    <div id="bottomScale2" style="position:absolute;left: auto;right: 20px;">
+
+                    </div>
                 </div>
+
             </div>
         </div>
 
@@ -393,149 +400,145 @@
     var minLineEle = document.getElementById("applyLineBottom");
 
     //    绘画折线及竖线组件 common  年度申请量   年度放款量
-        function polyLineDataObj(){}
+    function polyLineDataObj(){}
 
-        polyLineDataObj.prototype.maxHeightPx = 200;//竖线最大高度像素数
-        polyLineDataObj.prototype.horizontalSpacePx = 30;//月份间隔
-        //最大月份数据
-        polyLineDataObj.prototype.maxData = {
-            "num": 0,//申请数
-            "month": 0,//月份
-            "index": 0//数组索引
-        };
+    polyLineDataObj.prototype.maxHeightPx = 200;//竖线最大高度像素数
+    polyLineDataObj.prototype.horizontalSpacePx = 30;//月份间隔
+    //最大月份数据
+    polyLineDataObj.prototype.maxData = {
+        "num": 0,//申请数
+        "month": 0,//月份
+        "index": 0//数组索引
+    };
 
-        //最小月份数据
-        polyLineDataObj.prototype.minData = {
-            "num": 10000000000,//申请数
-            "month": 0,//月份
-            "index": 12//数组索引
-        };
-        //折线坐标
-        polyLineDataObj.prototype.points = "";
-        //初始化最大最小数据
-        polyLineDataObj.prototype.setMaxMinData = function(){
-            //console.log(this);
-            for(var i = 0 ; i<this.initData.length ; i++){
-                if(this.initData[i].num>=this.maxData.num){
-                    this.maxData = {
-                        "num": this.initData[i].num,//申请数
-                        "month": this.initData[i].month,//月份
-                        "index": i//数组索引
-                    };
-                }
-                if(this.initData[i].num > 0 && this.initData[i].num <= this.minData.num){
-                    this.minData = {
-                        "num": this.initData[i].num,//申请数
-                        "month": this.initData[i].month,//月份
-                        "index": i//数组索引
-                    };
-                }
+    //最小月份数据
+    polyLineDataObj.prototype.minData = {
+        "num": 10000000000,//申请数
+        "month": 0,//月份
+        "index": 12//数组索引
+    };
+    //折线坐标
+    polyLineDataObj.prototype.points = "";
+    //初始化最大最小数据
+    polyLineDataObj.prototype.setMaxMinData = function(){
+        //console.log(this);
+        for(var i = 0 ; i<this.initData.length ; i++){
+            if(this.initData[i].num>=this.maxData.num){
+                this.maxData = {
+                    "num": this.initData[i].num,//申请数
+                    "month": this.initData[i].month,//月份
+                    "index": i//数组索引
+                };
             }
-        };
+            if(this.initData[i].num > 0 && this.initData[i].num <= this.minData.num){
+                this.minData = {
+                    "num": this.initData[i].num,//申请数
+                    "month": this.initData[i].month,//月份
+                    "index": i//数组索引
+                };
+            }
+        }
+    };
 
-        //初始化左边刻度
-        polyLineDataObj.prototype.setLeftNum = function(leftScaleEle){
-            leftScaleEle[0].innerHTML = this.maxData.num;
-            leftScaleEle[1].innerHTML = parseInt(this.maxData.num/5*4);
-            leftScaleEle[2].innerHTML = parseInt(this.maxData.num/5*3);
-            leftScaleEle[3].innerHTML = parseInt(this.maxData.num/5*2);
-            leftScaleEle[4].innerHTML = parseInt(this.maxData.num/5);
-        };
+    //初始化左边刻度
+    polyLineDataObj.prototype.setLeftNum = function(leftScaleEle){
+        leftScaleEle[0].innerHTML = this.maxData.num;
+        leftScaleEle[1].innerHTML = parseInt(this.maxData.num/5*4);
+        leftScaleEle[2].innerHTML = parseInt(this.maxData.num/5*3);
+        leftScaleEle[3].innerHTML = parseInt(this.maxData.num/5*2);
+        leftScaleEle[4].innerHTML = parseInt(this.maxData.num/5);
+    };
 
-        //设置下边月份，竖线高度，折线，绑定鼠标移入显示申请数
-        polyLineDataObj.prototype.setMonthData = function(chartEle,monthScaleEle,monthLineEle,currentNumEle){
-            for(var i = 0 ; i<this.initData.length ; i++){
+    //设置下边月份，竖线高度，折线，绑定鼠标移入显示申请数
+    polyLineDataObj.prototype.setMonthData = function(chartEle,monthScaleEle,monthLineEle,currentNumEle){
+        for(var i = 0 ; i<this.initData.length ; i++){
 
-                //设置底部刻度
-                var newSpan = document.createElement("span");
-                newSpan.innerHTML = this.initData[i].month.substr(4,2);
-                monthScaleEle.appendChild(newSpan);
-                this.initData[i].lineHeight = this.maxHeightPx/this.maxData.num * this.initData[i].num;
-                this.initData[i].pointX = i*(this.horizontalSpacePx);
-                this.initData[i].pointY = this.maxHeightPx - this.initData[i].lineHeight;
-                this.points += (this.initData[i].pointX + "," + this.initData[i].pointY + " ");
+            //设置底部刻度
+            var newSpan = document.createElement("span");
+            newSpan.innerHTML = this.initData[i].month.substr(4,2);
+            monthScaleEle.appendChild(newSpan);
+            this.initData[i].lineHeight = this.maxHeightPx/this.maxData.num * this.initData[i].num;
+            this.initData[i].pointX = i*(this.horizontalSpacePx);
+            this.initData[i].pointY = this.maxHeightPx - this.initData[i].lineHeight;
+            this.points += (this.initData[i].pointX + "," + this.initData[i].pointY + " ");
 
-                //设置月份高度
-                var newli = document.createElement("li");
-                newli.style.height = this.initData[i].lineHeight + "px";
-                newli.style.height = this.initData[i].lineHeight + "px";
-                newli.setAttribute("data-month",this.initData[i].month);
-                newli.setAttribute("data-num",this.initData[i].num);
-                newli.setAttribute("data-pointY",this.initData[i].pointY);
-                monthLineEle.appendChild(newli);
-                var space = this.horizontalSpacePx;
-                //鼠标移动上去显示申请数目
-                (function(){
-                    var num = i ;
-                    var newEle = newli;
-                    var liSpace = space;
-                    newEle.onmouseover = function(event) {
-                        //console.log(event.target.offsetLeft + " " + monthLineEle.offsetLeft + " " + liSpace + " " + currentNumEle.clientWidth);
-                        var event = window.event || event;
-                        currentNumEle.innerHTML = newEle.getAttribute("data-month").substr(0, 4) + "/" + newEle.getAttribute("data-month").substr(4) + " " + newEle.getAttribute("data-num");
-                        currentNumEle.style.top = newEle.getAttribute("data-pointY") + 'px';
-                        var left = 0;
-                        if(event.target){
-                            if(liSpace < 30){
-                                left = event.target.offsetLeft + monthLineEle.offsetLeft ;
-                                //判断是不是最后两个月，设置数据显示在原点前面
-                                if (left > chartEle.clientWidth - currentNumEle.clientWidth ) {
-                                    left = event.target.offsetLeft + monthLineEle.offsetLeft  - currentNumEle.clientWidth ;
-                                }
-                            }else{
-                                left = event.target.offsetLeft + monthLineEle.offsetLeft + liSpace;
-                                //判断是不是最后两个月，设置数据显示在原点前面
-                                if (left > chartEle.clientWidth - currentNumEle.clientWidth - 10) {
-                                    left = event.target.offsetLeft + monthLineEle.offsetLeft + liSpace - currentNumEle.clientWidth - 10;
-                                }
+            //设置月份高度
+            var newli = document.createElement("li");
+            newli.style.height = this.initData[i].lineHeight + "px";
+            newli.style.height = this.initData[i].lineHeight + "px";
+            newli.setAttribute("data-month",this.initData[i].month);
+            newli.setAttribute("data-num",this.initData[i].num);
+            newli.setAttribute("data-pointY",this.initData[i].pointY);
+            monthLineEle.appendChild(newli);
+            var space = this.horizontalSpacePx;
+            //鼠标移动上去显示申请数目
+            (function(){
+                var num = i ;
+                var newEle = newli;
+                var liSpace = space;
+                newEle.onmouseover = function(event) {
+                    //console.log(event.target.offsetLeft + " " + monthLineEle.offsetLeft + " " + liSpace + " " + currentNumEle.clientWidth);
+                    var event = window.event || event;
+                    currentNumEle.innerHTML = newEle.getAttribute("data-month").substr(0, 4) + "/" + newEle.getAttribute("data-month").substr(4) + " " + newEle.getAttribute("data-num");
+                    currentNumEle.style.top = newEle.getAttribute("data-pointY") + 'px';
+                    var left = 0;
+                    if(event.target){
+                        if(liSpace < 30){
+                            left = event.target.offsetLeft + monthLineEle.offsetLeft ;
+                            //判断是不是最后两个月，设置数据显示在原点前面
+                            if (left > chartEle.clientWidth - currentNumEle.clientWidth ) {
+                                left = event.target.offsetLeft + monthLineEle.offsetLeft  - currentNumEle.clientWidth ;
+                            }
+                        }else{
+                            left = event.target.offsetLeft + monthLineEle.offsetLeft + liSpace;
+                            //判断是不是最后两个月，设置数据显示在原点前面
+                            if (left > chartEle.clientWidth - currentNumEle.clientWidth - 10) {
+                                left = event.target.offsetLeft + monthLineEle.offsetLeft + liSpace - currentNumEle.clientWidth - 10;
+                            }
+                        }
+                    }else{
+
+                        if(liSpace < 30){
+                            left = event.srcElement.offsetLeft + monthLineEle.offsetLeft ;
+                            //判断是不是最后两个月，设置数据显示在原点前面
+                            if (left > chartEle.clientWidth - currentNumEle.clientWidth ) {
+                                left = event.srcElement.offsetLeft + monthLineEle.offsetLeft  - currentNumEle.clientWidth ;
                             }
                         }else{
 
-                            if(liSpace < 30){
-                                left = event.srcElement.offsetLeft + monthLineEle.offsetLeft ;
-                                //判断是不是最后两个月，设置数据显示在原点前面
-                                if (left > chartEle.clientWidth - currentNumEle.clientWidth ) {
-                                    left = event.srcElement.offsetLeft + monthLineEle.offsetLeft  - currentNumEle.clientWidth ;
-                                }
-                            }else{
-
-                                left = event.srcElement.offsetLeft + monthLineEle.offsetLeft + liSpace;
-                                //判断是不是最后两个月，设置数据显示在原点前面
-                                if (left > chartEle.clientWidth - currentNumEle.clientWidth - 10) {
-                                    left = event.srcElement.offsetLeft + monthLineEle.offsetLeft + liSpace - currentNumEle.clientWidth - 10;
-                                }
+                            left = event.srcElement.offsetLeft + monthLineEle.offsetLeft + liSpace;
+                            //判断是不是最后两个月，设置数据显示在原点前面
+                            if (left > chartEle.clientWidth - currentNumEle.clientWidth - 10) {
+                                left = event.srcElement.offsetLeft + monthLineEle.offsetLeft + liSpace - currentNumEle.clientWidth - 10;
                             }
                         }
-                        //console.log(left);
-                        currentNumEle.style.left = left + 'px';
                     }
-                })();
-            }
+                    //console.log(left);
+                    currentNumEle.style.left = left + 'px';
+                }
+            })();
+        }
 
-        };
-        polyLineDataObj.prototype.setSvgPolyline = function(polyLineEle,polyLineVmlEle){
-            if(document.createElementNS){
-                //支持SVG
-                polyLineEle.setAttribute("points",this.points);
-            }else{
-                var polyLineVml = document.createElement("v:polyline");
-                polyLineVml.strokeweight = "2px";
-                polyLineVml.strokecolor = "#fd7676";
-                polyLineVml.points = this.points;
-                polyLineVmlEle.appendChild(polyLineVml);
-            }
-        };
-        polyLineDataObj.prototype.setMaxMinLine = function(monthLineEle,maxLineEle,minLineEle){
-            //设置最多次月份颜色
-            monthLineEle.getElementsByTagName("li")[this.maxData.index].className = "max";
-            monthLineEle.getElementsByTagName("li")[this.minData.index].className = "min";
-            //设置横线长度
-        //            maxLineEle.style.width = this.maxData.index * this.horizontalSpacePx + "px";
-        };
-
-
-
-
+    };
+    polyLineDataObj.prototype.setSvgPolyline = function(polyLineEle,polyLineVmlEle){
+        if(document.createElementNS){
+            //支持SVG
+            polyLineEle.setAttribute("points",this.points);
+        }else{
+            var polyLineVml = document.createElement("v:polyline");
+            polyLineVml.strokeweight = "2px";
+            polyLineVml.strokecolor = "#fd7676";
+            polyLineVml.points = this.points;
+            polyLineVmlEle.appendChild(polyLineVml);
+        }
+    };
+    polyLineDataObj.prototype.setMaxMinLine = function(monthLineEle,maxLineEle,minLineEle){
+        //设置最多次月份颜色
+        monthLineEle.getElementsByTagName("li")[this.maxData.index].className = "max";
+        monthLineEle.getElementsByTagName("li")[this.minData.index].className = "min";
+        //设置横线长度
+    //            maxLineEle.style.width = this.maxData.index * this.horizontalSpacePx + "px";
+    };
 
     //判断传递的数据是否够12个月 common  年度申请量   年度放款量
     function initChartData(numArr){
@@ -570,15 +573,15 @@
 
     //年度申请量调用
     initPolyline([
-        {"month":"201510","num":240},
-        {"month":"201511","num":200},
-        {"month":"201512","num":340},
-        {"month":"201601","num":600},
-        {"month":"201602","num":480},
-        {"month":"201603","num":320},
-        {"month":"201604","num":300},
-        {"month":"201605","num":480},
-        {"month":"201606","num":640},
+//        {"month":"201510","num":240},
+//        {"month":"201511","num":200},
+//        {"month":"201512","num":340},
+//        {"month":"201601","num":600},
+//        {"month":"201602","num":480},
+//        {"month":"201603","num":320},
+//        {"month":"201604","num":300},
+//        {"month":"201605","num":480},
+//        {"month":"201606","num":640},
         {"month":"201607","num":700},
         {"month":"201608","num":780},
         {"month":"201609","num":540},
@@ -590,8 +593,8 @@
     function initPolyline(numArr){
         var initData = initChartData(numArr);
         applyData = new polyLineDataObj();
-        polylineSvgEle.setAttribute("width" , applyData.horizontalSpacePx*(initData.length-1) + "px");
-        polyLineVmlEle.setAttribute("width" , applyData.horizontalSpacePx*(initData.length-1) + "px");
+        polylineSvgEle.style.width = applyData.horizontalSpacePx*(initData.length-1)+ "px";
+        polyLineVmlEle.style.width = applyData.horizontalSpacePx*(initData.length-1)+ "px";
         monthLineEle.style.width = applyData.horizontalSpacePx*(initData.length) + "px";
         monthScaleEle.style.width = applyData.horizontalSpacePx*(initData.length) + "px";
         applyData.initData = initData;
@@ -605,51 +608,53 @@
     //年度申请量鼠标拖动效果
     (function(){
         monthLineEle.onmousedown = function(event){
-            var event = window.event || event;
-            var startPoint = {
-                x: event.x || event.pageX,//firefox pageX;其余x
-                y: event.y || event.pageY,//firefox pageY;其余y
-                lineRight: parseInt(polylineSvgEle.style.right),
-                polyLineRight: parseInt(monthLineEle.style.right),
-                monthScaleRight: parseInt(monthScaleEle.style.right)
-            };
-            monthLineEle.onmousemove = function(event){
-                var event2 = window.event || event;
-                var moveSpace = 0;
-                if(event2.x){
-                    moveSpace = event2.x  - startPoint.x;
-                }else{
-                    moveSpace = event2.pageX  - startPoint.x;
-                }
-                if((startPoint.lineRight - moveSpace) >= 8){
-                    //向右设置最大可移动距离
-                    polylineSvgEle.style.right = "8px";
-                    polyLineVmlEle.style.right = "8px";
-                    monthLineEle.style.right = "8px";
-                    monthScaleEle.style.right = "13px";
-                    polyLineVmlEle.style.right = "8px";
-                }else if(startPoint.polyLineRight - moveSpace   < (chartEle.clientWidth - applyData.horizontalSpacePx * applyData.initData.length + 20)){
-                    //向左最大可移动距离
-                    polylineSvgEle.style.right = chartEle.clientWidth - applyData.horizontalSpacePx * applyData.initData.length + 20 + "px";
-                    polyLineVmlEle.style.right = chartEle.clientWidth - applyData.horizontalSpacePx * applyData.initData.length + 20 + "px";
-                    monthLineEle.style.right = chartEle.clientWidth - applyData.horizontalSpacePx * applyData.initData.length + 20 + "px";
-                    monthScaleEle.style.right = chartEle.clientWidth - applyData.horizontalSpacePx * applyData.initData.length + 20 + "px";
-                }else{
-                    try{
-                        polylineSvgEle.style.right = startPoint.lineRight - moveSpace +"px";
-                        polyLineVmlEle.style.right = startPoint.lineRight - moveSpace +"px";
-                        monthLineEle.style.right = startPoint.polyLineRight - moveSpace +"px";
-                        monthScaleEle.style.right = parseInt(startPoint.monthScaleRight - moveSpace) +"px";
-                    }catch(e){
-                        alert(startPoint.monthScaleRight+ " " + moveSpace );
+            if(countData.initData.length == 12){
+            }else {
+                var event = window.event || event;
+                var startPoint = {
+                    x: event.x || event.pageX,//firefox pageX;其余x
+                    y: event.y || event.pageY,//firefox pageY;其余y
+                    lineRight: parseInt(polylineSvgEle.style.right),
+                    polyLineRight: parseInt(monthLineEle.style.right),
+                    monthScaleRight: parseInt(monthScaleEle.style.right)
+                };
+                monthLineEle.onmousemove = function (event) {
+                    var event2 = window.event || event;
+                    var moveSpace = 0;
+                    if (event2.x) {
+                        moveSpace = event2.x - startPoint.x;
+                    } else {
+                        moveSpace = event2.pageX - startPoint.x;
                     }
+                    if ((startPoint.lineRight - moveSpace) >= 8) {
+                        //向右设置最大可移动距离
+                        polylineSvgEle.style.right = "8px";
+                        polyLineVmlEle.style.right = "8px";
+                        monthLineEle.style.right = "8px";
+                        monthScaleEle.style.right = "13px";
+                        polyLineVmlEle.style.right = "8px";
+                    } else if (startPoint.polyLineRight - moveSpace < (chartEle.clientWidth - applyData.horizontalSpacePx * applyData.initData.length + 20)) {
+                        //向左最大可移动距离
+                        polylineSvgEle.style.right = chartEle.clientWidth - applyData.horizontalSpacePx * applyData.initData.length + 20 + "px";
+                        polyLineVmlEle.style.right = chartEle.clientWidth - applyData.horizontalSpacePx * applyData.initData.length + 20 + "px";
+                        monthLineEle.style.right = chartEle.clientWidth - applyData.horizontalSpacePx * applyData.initData.length + 20 + "px";
+                        monthScaleEle.style.right = chartEle.clientWidth - applyData.horizontalSpacePx * applyData.initData.length + 20 + "px";
+                    } else {
+                        try {
+                            polylineSvgEle.style.right = startPoint.lineRight - moveSpace + "px";
+                            polyLineVmlEle.style.right = startPoint.lineRight - moveSpace + "px";
+                            monthLineEle.style.right = startPoint.polyLineRight - moveSpace + "px";
+                            monthScaleEle.style.right = parseInt(startPoint.monthScaleRight - moveSpace) + "px";
+                        } catch (e) {
+                            alert("发现一个异常：" + e + " " + startPoint.monthScaleRight + " " + moveSpace);
+                        }
+                    }
+                    //console.log(startPoint.monthScaleRight+ " "+ moveSpace );
+
+                };
+                document.onmouseup = function () {
+                    monthLineEle.onmousemove = null;
                 }
-                //console.log(startPoint.monthScaleRight+ " "+ moveSpace );
-
-
-            };
-            document.onmouseup = function(){
-                monthLineEle.onmousemove = null;
             }
         };
         document.onmouseup = function(){
@@ -671,18 +676,18 @@
     var minLineEle2 = document.getElementById("countLineBottom");
     var countData;
     setMoneyCount([
-        {"month":"201510","num":2400000},
-        {"month":"201511","num":2010000},
-        {"month":"201512","num":3430000},
-        {"month":"201601","num":6050000},
-        {"month":"201602","num":4880000},
-        {"month":"201603","num":3290000},
-        {"month":"201604","num":3012000},
-        {"month":"201605","num":4820000},
-        {"month":"201606","num":6440000},
-        {"month":"201607","num":7030000},
-        {"month":"201608","num":7880000},
-        {"month":"201609","num":5420000},
+//        {"month":"201510","num":2400000},
+//        {"month":"201511","num":2010000},
+//        {"month":"201512","num":3430000},
+//        {"month":"201601","num":6050000},
+//        {"month":"201602","num":4880000},
+//        {"month":"201603","num":3290000},
+//        {"month":"201604","num":3012000},
+//        {"month":"201605","num":4820000},
+//        {"month":"201606","num":6440000},
+//        {"month":"201607","num":7030000},
+//        {"month":"201608","num":7880000},
+//        {"month":"201609","num":5420000},
         {"month":"201610","num":7030000},
         {"month":"201611","num":3840000}]);
     function setMoneyCount(numArr){
@@ -700,43 +705,45 @@
         for(var i = 0 ; i<leftScaleEle2.length ; i++){
             leftScaleEle2[i].innerHTML = parseInt(leftScaleEle2[i].innerHTML/10000) +"万";
         }
-
-
     }
+
     //年度放款量鼠标拖动效果
     (function(){
         monthLineEle2.onmousedown = function(event){
-            var event = window.event || event;
-            var startPoint = {
-                x: event.x || event.pageX,//firefox pageX;其余x
-                y: event.y || event.pageY,//firefox pageY;其余y
-                polyLineRight: parseInt(monthLineEle2.style.right),
-                monthScaleRight: parseInt(monthScaleEle2.style.right)
-            };
-            monthLineEle2.onmousemove = function(event){
+            if(countData.initData.length == 12){
+            }else{
                 var event = window.event || event;
-                var moveSpace = 0;
-                if(event.x){
-                    moveSpace = event.x  - startPoint.x;
-                }else{
-                    moveSpace = event.pageX  - startPoint.x;
-                }
-                if((startPoint.polyLineRight - moveSpace) >= 8){
-                    //向右设置最大可移动距离
-                    monthLineEle2.style.right = "8px";
-                    monthScaleEle2.style.right = "13px";
-                }else if(startPoint.polyLineRight - moveSpace   < (chartEle2.clientWidth - countData.horizontalSpacePx * countData.initData.length)){
-                    //向左最大可移动距离
-                    monthLineEle2.style.right = chartEle2.clientWidth - countData.horizontalSpacePx * countData.initData.length + "px";
-                    monthScaleEle2.style.right = chartEle2.clientWidth - countData.horizontalSpacePx * countData.initData.length + "px";
-                }else{
-                    monthLineEle2.style.right = startPoint.polyLineRight - moveSpace +"px";
-                    monthScaleEle2.style.right = startPoint.monthScaleRight - moveSpace +"px";
-                }
+                var startPoint = {
+                    x: event.x || event.pageX,//firefox pageX;其余x
+                    y: event.y || event.pageY,//firefox pageY;其余y
+                    polyLineRight: parseInt(monthLineEle2.style.right),
+                    monthScaleRight: parseInt(monthScaleEle2.style.right)
+                };
+                monthLineEle2.onmousemove = function(event){
+                    var event = window.event || event;
+                    var moveSpace = 0;
+                    if(event.x){
+                        moveSpace = event.x  - startPoint.x;
+                    }else{
+                        moveSpace = event.pageX  - startPoint.x;
+                    }
+                    if((startPoint.polyLineRight - moveSpace) >= 8){
+                        //向右设置最大可移动距离
+                        monthLineEle2.style.right = "15px";
+                        monthScaleEle2.style.right = "20px";
+                    }else if(startPoint.polyLineRight - moveSpace   < (chartEle2.clientWidth - countData.horizontalSpacePx * countData.initData.length)){
+                        //向左最大可移动距离
+                        monthLineEle2.style.right = chartEle2.clientWidth - countData.horizontalSpacePx * countData.initData.length + "px";
+                        monthScaleEle2.style.right = chartEle2.clientWidth - countData.horizontalSpacePx * countData.initData.length + "px";
+                    }else{
+                        monthLineEle2.style.right = startPoint.polyLineRight - moveSpace +"px";
+                        monthScaleEle2.style.right = startPoint.monthScaleRight - moveSpace +"px";
+                    }
 
-            };
-            document.onmouseup = function(){
-                monthLineEle2.onmousemove = null;
+                };
+                document.onmouseup = function(){
+                    monthLineEle2.onmousemove = null;
+                }
             }
         };
         document.onmouseup = function(){
@@ -765,7 +772,6 @@
         var coverCircleEle = document.getElementById(coverCircleId);
         var sumNumEle = document.getElementById(sumNumId);
         var countListEle = document.getElementById(countListId);
-
         var circleObj = {
             cx: 60,
             cy: 60,
@@ -813,7 +819,6 @@
                 default:
                     pathColor = "#ddd"
             }
-
 
             if(i == arr.length-1){
                 pathColor = "#81edac";

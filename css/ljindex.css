@@ -589,23 +589,10 @@ body{
 }
 /* 经销商TOP10 产品TOP5 */
 
-/* 年度申请量 */
-
 /* 年度放款量 */
 .year_money .content{
     padding: 10px 10px 10px 0;
     position: relative;
-}
-.year_money .content:after {
-    content: "";
-    display: block;
-    width: 55px;
-    height: 50px;
-    background: #fff;
-    position: absolute;
-    left: 0;
-    bottom: 0;;
-    z-index: 1;
 }
 .scale{
     color: #999;
@@ -628,8 +615,10 @@ body{
     position: absolute;
     top: 219px;
     left: 56px;
-    right: 10px;
+    right: 2px;
     padding-top: 6px;
+    height: 30px;
+    overflow: hidden;
 }
 .month_scale span{
     display: inline-block;
@@ -661,6 +650,9 @@ body{
 .chart ul li.max{
     background: #9bdcfb;
 }
+.chart ul li.min{
+    background: #fda9a4;
+}
 .chart ul li:hover,.chart ul li.active{
     background: #9bdcfb;
 }
@@ -690,23 +682,16 @@ body{
 .year_money .month_scale span{
     text-align: right;
 }
+.year_money .chart ul{
+    cursor: move;
+}
 /* 年度申请量 */
 .year_apply .content{
     padding: 10px;
     position: relative;
 }
-.year_apply .content:after {
-    content: "";
-    display: block;
-    width: 51px;
-    height: 50px;
-    background: #fff;
-    position: absolute;
-    left: 0;
-    bottom: 0;;
-    z-index: 1;
-}
 .year_apply .chart ul{
+    cursor: move;
 }
 .year_apply .chart ul li{
     width: 30px;
@@ -885,4 +870,11 @@ body{
     color: white;
     text-align: center;
     font-size: 12px;
+}
+#home_container .countlist li a span {
+    color: #ea6170;
+}
+#home_container .countlist li.work_dgd.active {
+    outline: 1px solid #ea6170;
+    outline-offset: -1px;
 }
