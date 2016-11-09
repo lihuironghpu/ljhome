@@ -596,6 +596,17 @@ body{
     padding: 10px 10px 10px 0;
     position: relative;
 }
+.year_money .content:after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 50px;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 0;;
+    z-index: 1;
+}
 .scale{
     color: #999;
     font-size: 12px;
@@ -614,7 +625,6 @@ body{
     padding-right: 4px;
 }
 .month_scale{
-    border-top: 1px solid #ddd;
     position: absolute;
     top: 219px;
     left: 56px;
@@ -632,9 +642,12 @@ body{
     bottom: 30px;
     left: 56px;
     padding-top: 10px;
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
 }
 .chart ul{
     font-size: 0;
+    position: absolute;
     overflow: hidden;
 }
 .chart ul li{
@@ -681,13 +694,19 @@ body{
 .year_apply .content{
     padding: 10px;
     position: relative;
-
 }
-.year_apply .chart{
-    left: 51px;
+.year_apply .content:after {
+    content: "";
+    display: block;
+    width: 51px;
+    height: 50px;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 0;;
+    z-index: 1;
 }
 .year_apply .chart ul{
-    overflow: visible;
 }
 .year_apply .chart ul li{
     width: 30px;
@@ -695,7 +714,7 @@ body{
     padding: 0;
     box-sizing: border-box;
     background: transparent;
-    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
     position: relative;
 }
 .year_apply .chart ul li:hover:before{
@@ -705,7 +724,7 @@ body{
     height: 10px;
     position: absolute;
     top: -8px;
-    left: -5px;
+    right: -6px;
     box-sizing: border-box;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
@@ -714,19 +733,23 @@ body{
     background: #fff;
 }
 .year_apply .chart ul li.max{
-    border-left: 1px solid #9bdcfb;
+    border-right: 1px solid #9bdcfb;
+}
+.year_apply .chart ul li.min{
+    border-right: 1px solid #fd7676;
 }
 .year_apply .chart ul li:hover{
-    border-left: 2px solid #9bdcfb;
+    border-right: 2px solid #9bdcfb;
 }
 .year_apply .money_scale{
     width: 42px;
 }
 .year_apply .month_scale{
     left: 52px;
+    text-align: right;
 }
 .year_apply .month_scale span{
-    width: 29px;
+    width: 30px;
 }
 .year_apply .chart .now_number{
     text-indent: 8px;
@@ -784,6 +807,7 @@ body{
     top: 0;
     bottom: 0;
     left: 30px;
+    border-bottom: none;
 }
 .rank_panel .chart ul li{
     display: block;
