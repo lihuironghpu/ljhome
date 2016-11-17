@@ -481,39 +481,11 @@
                     var event = window.event || event;
                     currentNumEle.innerHTML = newEle.getAttribute("data-month").substr(0, 4) + "/" + newEle.getAttribute("data-month").substr(4) + " " + newEle.getAttribute("data-num");
                     currentNumEle.style.top = newEle.getAttribute("data-pointY") + 'px';
-                    var left = 0;
-                    if(event.target){
-                        if(liSpace < 30){
-                            left = event.target.offsetLeft + monthLineEle.offsetLeft ;
-                            //判断是不是最后两个月，设置数据显示在原点前面
-                            if (left > chartEle.clientWidth - currentNumEle.clientWidth ) {
-                                left = event.target.offsetLeft + monthLineEle.offsetLeft  - currentNumEle.clientWidth ;
-                            }
-                        }else{
-                            left = event.target.offsetLeft + monthLineEle.offsetLeft + liSpace;
-                            //判断是不是最后两个月，设置数据显示在原点前面
-                            if (left > chartEle.clientWidth - currentNumEle.clientWidth - 10) {
-                                left = event.target.offsetLeft + monthLineEle.offsetLeft + liSpace - currentNumEle.clientWidth - 10;
-                            }
-                        }
-                    }else{
-
-                        if(liSpace < 30){
-                            left = event.srcElement.offsetLeft + monthLineEle.offsetLeft ;
-                            //判断是不是最后两个月，设置数据显示在原点前面
-                            if (left > chartEle.clientWidth - currentNumEle.clientWidth ) {
-                                left = event.srcElement.offsetLeft + monthLineEle.offsetLeft  - currentNumEle.clientWidth ;
-                            }
-                        }else{
-
-                            left = event.srcElement.offsetLeft + monthLineEle.offsetLeft + liSpace;
-                            //判断是不是最后两个月，设置数据显示在原点前面
-                            if (left > chartEle.clientWidth - currentNumEle.clientWidth - 10) {
-                                left = event.srcElement.offsetLeft + monthLineEle.offsetLeft + liSpace - currentNumEle.clientWidth - 10;
-                            }
-                        }
+                    var left = liSpace*(num+1) + monthLineEle.offsetLeft ;
+                    //判断是不是最后两个月，设置数据显示在原点前面
+                    if (left > chartEle.clientWidth - currentNumEle.clientWidth ) {
+                        left = liSpace*(num+1) + monthLineEle.offsetLeft  - currentNumEle.clientWidth - 10;
                     }
-                    //console.log(left);
                     currentNumEle.style.left = left + 'px';
                 }
             })();
@@ -577,11 +549,11 @@
 //        {"month":"201511","num":200},
 //        {"month":"201512","num":340},
 //        {"month":"201601","num":600},
-//        {"month":"201602","num":480},
-//        {"month":"201603","num":320},
-//        {"month":"201604","num":300},
-//        {"month":"201605","num":480},
-//        {"month":"201606","num":640},
+        {"month":"201602","num":480},
+        {"month":"201603","num":320},
+        {"month":"201604","num":300},
+        {"month":"201605","num":480},
+        {"month":"201606","num":640},
         {"month":"201607","num":700},
         {"month":"201608","num":780},
         {"month":"201609","num":540},
@@ -676,18 +648,18 @@
     var minLineEle2 = document.getElementById("countLineBottom");
     var countData;
     setMoneyCount([
-//        {"month":"201510","num":2400000},
-//        {"month":"201511","num":2010000},
-//        {"month":"201512","num":3430000},
-//        {"month":"201601","num":6050000},
-//        {"month":"201602","num":4880000},
-//        {"month":"201603","num":3290000},
-//        {"month":"201604","num":3012000},
-//        {"month":"201605","num":4820000},
-//        {"month":"201606","num":6440000},
-//        {"month":"201607","num":7030000},
-//        {"month":"201608","num":7880000},
-//        {"month":"201609","num":5420000},
+        {"month":"201510","num":2400000},
+        {"month":"201511","num":2010000},
+        {"month":"201512","num":3430000},
+        {"month":"201601","num":6050000},
+        {"month":"201602","num":4880000},
+        {"month":"201603","num":3290000},
+        {"month":"201604","num":3012000},
+        {"month":"201605","num":4820000},
+        {"month":"201606","num":6440000},
+        {"month":"201607","num":7030000},
+        {"month":"201608","num":7880000},
+        {"month":"201609","num":5420000},
         {"month":"201610","num":7030000},
         {"month":"201611","num":3840000}]);
     function setMoneyCount(numArr){
